@@ -4,7 +4,7 @@ CC = clang++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = megaphone.cpp
+SRCS = Account.class.cpp
 
 OBJS	= ${SRCS:.c=.o}
 
