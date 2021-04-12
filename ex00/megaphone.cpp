@@ -16,5 +16,6 @@ int main	(int argc, char **argv)
 			std::cout << argv[j][i];
 		}
 	}
+	std::cout << '\n';
 	return 0;
 }
