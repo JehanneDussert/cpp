@@ -1,24 +1,23 @@
 NAME = phonebook
 
-CC = clang++
+SRCS = phonebook.cpp
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+OBJS = $(SRCS:.cpp=.o)
 
-SRCS = Account.class.cpp
+CXX = clang++
 
-OBJS	= ${SRCS:.c=.o}
+CXXFLAGS += -Wall -Wextra -std=c++98
 
-$(NAME)	:	${OBJS} 
-		${CC} ${CFLAGS} -o ${NAME} ${OBJS}
+all : $(NAME)
 
-all : ${NAME}
+$(NAME) : $(OBJS)
 
-clean :
-		rm -f ${OBJS}
+	@${CXX} ${CXXFLAGS} -o ${NAME} $(OBJS)
+
+clean : 
+	@/bin/rm -f $(OBJS)
 
 fclean : clean
-		rm -f ${NAME}
+	@/bin/rm -f $(NAME)
 
 re : fclean all
-
-work : all clean
