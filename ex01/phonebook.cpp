@@ -8,155 +8,79 @@
 // et ne peut pas stocker plus de 8 contacts. Si un neuvième contact est ajouté, veuillez
 // définir un comportement pertinent.
 
-// const
-
-namespace	add
+phonebook::phonebook(void)
 {
-	char	**book;
-
-}
-
-namespace	search
-{
-
-}
-
-namespace	print
-{
-
-}
-
-sample1::sample1(char p1, int p2, float p3)
-{
-	std::cout << "Constructor sample1" << std::endl;
-	this->a1 = p1;
-	std::cout << "\tthis->a1 : " << this->a1 << std::endl;
-	this->a2 = p2;
-	std::cout << "\tthis->a2 : " << this->a2 << std::endl;
-	this->a3 = p3;
-	std::cout << "\tthis->a3 : " << this->a3 << std::endl;
-	return ;
-}
-
-sample1::~sample1(void)
-{
-	std::cout << "Destructor sample1" << std::endl;
-	return ;
-}
-
-sample2::sample2(char p1, int p2, float p3) : a1(p1), a2(p2), a3(p3)
-{
-	std::cout << "Constructor sample2" << std::endl;
-	std::cout << "\tthis->a1 : " << this->a1 << std::endl;
-	std::cout << "\tthis->a2 : " << this->a2 << std::endl;
-	std::cout << "\tthis->a3 : " << this->a3 << std::endl;
-	return ;
-}
-
-sample2::~sample2(void)
-{
-	std::cout << "Destructor sample2" << std::endl;
-	return ;
-}
-
-sample::sample(float const f) : pi(f), qd(42)
-{
-	std::cout << "Constructor sample" << std::endl;
-	
-	return ;
-}
-
-sample::~sample(void)
-{
-	std::cout << "Destructor sample" << std::endl;
+	this->_contacts_nb = 0;
+	this->_criterias = 11;
+	std::cout << "Constructor called" << std::endl;
 
 	return ;
 }
 
-void	sample::bar(void) const 
-// on signifie avec ce const que cette fonction 
-// membre ne modifiera jamais l'instance courant
-// donc on peut pas faire de this->value
+phonebook::~phonebook(void)
 {
-	std::cout << "\tthis->pi : " << this->pi << std::endl;
-	std::cout << "\tthis->qd : " << this->qd << std::endl;
-
 	return ;
 }
 
-sample3::sample3(void)
+int		phonebook::_getfoo(char *name) const
 {
-	std::cout << "Constructor sample 3" << std::endl;
+	int i;
 
-	this->publicfoo = 0;
-	std::cout << "\tthis->publicfoo : " << this->publicfoo << std::endl;
-	this->_privatefoo = 0;
-	std::cout << "\tthis->privatefoo : " << this->_privatefoo << std::endl;
-	
-	this->publicbar();
-	this->_privatebar();
-	
-	return ;
+	for (i = 0; i < this->_contacts_nb ; i++)
+		if (!strcmp(name, this->contact[i]))
+			return -1;
+	return 0;
 }
 
-sample3::~sample3(void)
+void	phonebook::_ft_search(char *name)
 {
-	std::cout << "Destructor sample 3" << std::endl;
+
 }
 
-void	sample3::publicbar(void) const
+int	phonebook::_setfoo(int n, char *name)
 {
-	std::cout << "Public function" << std::endl;
-	
-	return ;
+	int	i;
+	if (n == 8)
+		return -1;
+	for (i =  0; i < this->_criterias; i++)
+	{
+		this->contact[this->_criterias][n] = name;
+		this->_contacts_nb = n;
+	}
+	return 0;
 }
 
-void	sample3::_privatebar(void) const
+int		phonebook::_ft_add(char *name)
 {
-	std::cout << "Private function" << std::endl;
-	
-	return ;
+	if (this->_getfoo(name) == -1)
+		std::cout << "Error, you have already add this phone contact !" << std::endl;
+	else if (this->_setfoo(this->_contacts_nb, name) == -1)
+		std::cout << "Error, you have already 8 phone contacts !" << std::endl;
+	return 0;
 }
 
-void	sample::bar(void) const 
-// on signifie avec ce const que cette fonction 
-// membre ne modifiera jamais l'instance courant
-// donc on peut pas faire de this->value
+void	phonebook::ft_start(phonebook instance, char *buf)
 {
-	std::cout << "\tthis->pi : " << this->pi << std::endl;
-	std::cout << "\tthis->qd : " << this->qd << std::endl;
+	if (!strcmp(buf, "ADD"))
+		instance._ft_add(buf);
+	else if (!strcmp(buf, "SEARCH"))
+		instance._ft_search(buf);
 
 	return ;
 }
 
 int main (void)
 {
-	//sample1		instance1('a', 42, 4.2f);
-	//sample2		instance2('z', 13, 3.14f);
-	//sample		instance(3.14f);
-	//instance.bar();
-	sample3			instance;
-
-	return 0;
-}
-
-/*
-int main	(void)
-{
-	char	buff[512];
-	char	name[512];
-	int		i;
-	int		j;
+	char		buf[512];
+	phonebook	instance;
 
 	std::cout << "Enter an input (ADD, SEARCH, EXIT) : ";
-	std::cin >> buff;
-    for (j = 0; buff[j] != '\0' ; j++)
-	{
-        for (i = j; buff[i] != ' '; i++)
-		{
-			std::cout << buff[i];
-		}
-	}
-	std::cout << '\n';
+	std::cin >> buf;
+	if (!strcmp(buf, "EXIT"))
+		std::cout << "Bye bye !" << std::endl;
+	else if (!strcmp(buf, "ADD") || !strcmp(buf, "SEARCH"))
+		instance.ft_start(instance, buf);
+	else
+		std::cout << "Error, wrong argument !" << std::endl;
 	return 0;
-}*/
+}
