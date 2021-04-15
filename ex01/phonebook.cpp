@@ -12,6 +12,11 @@ phonebook::phonebook(void)
 {
 	this->_contacts_nb = 0;
 	this->_criterias = 11;
+	this->criterias = {
+		"first name", "last name", "nickname", "login", "postal address", 
+		"e-mail", "phone number", "birthday date", "favorite meal", "underwear color", 
+		"darkest secret"
+	};
 	std::cout << "Constructor called" << std::endl;
 
 	return ;
@@ -25,33 +30,43 @@ phonebook::~phonebook(void)
 int		phonebook::_getfoo(char *name) const
 {
 	int i;
+	int	j;
 
-	for (i = 0; i < this->_contacts_nb ; i++)
-		if (!strcmp(name, this->contact[i]))
-			return -1;
+	for (i = 0; i < this->_contacts_nb; i++)
+		for (j = 0; j < this->_criterias; j++)
+			if (!strcmp(name, this->contact[i][j]))
+				return -1;
 	return 0;
 }
 
 void	phonebook::_ft_search(char *name)
 {
-
+	(void)name;
 }
 
 int	phonebook::_setfoo(int n, char *name)
 {
 	int	i;
-	if (n == 8)
+	char		buf[512];
+
+	std::cout << "Enter an input (ADD, SEARCH, EXIT) : ";
+	std::cin >> buf;
+	if (this->_contacts_nb == 8)
 		return -1;
 	for (i =  0; i < this->_criterias; i++)
 	{
-		this->contact[this->_criterias][n] = name;
-		this->_contacts_nb = n;
+		this->contact[this->_contacts_nb][i] = name;
+		this->_contacts_nb++;
 	}
 	return 0;
 }
 
-int		phonebook::_ft_add(char *name)
+int		phonebook::_ft_add(void)
 {
+	char		buf[512];
+
+	std::cout << "Enter an input (ADD, SEARCH, EXIT) : ";
+	std::cin >> buf;
 	if (this->_getfoo(name) == -1)
 		std::cout << "Error, you have already add this phone contact !" << std::endl;
 	else if (this->_setfoo(this->_contacts_nb, name) == -1)
@@ -62,9 +77,9 @@ int		phonebook::_ft_add(char *name)
 void	phonebook::ft_start(phonebook instance, char *buf)
 {
 	if (!strcmp(buf, "ADD"))
-		instance._ft_add(buf);
+		instance._ft_add();
 	else if (!strcmp(buf, "SEARCH"))
-		instance._ft_search(buf);
+		instance._ft_search();
 
 	return ;
 }
