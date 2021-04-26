@@ -5,6 +5,7 @@
 # include <ctype.h>
 # include <string>
 # include <sstream>
+# include <string.h>
 
 class	contact
 {
