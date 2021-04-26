@@ -3,35 +3,38 @@
 
 # include <iostream>
 # include <ctype.h>
+# include <string>
+# include <sstream>
 
-class	phonebook
+class	contact
 {
 public:
 	int		foo;
-	phonebook(void);
-	~phonebook(void);
-	void	ft_start(phonebook instance, char *buf);
+	contact(void);
+	~contact(void);
+	static int	ft_contacts_nb(void);
+	static void ft_contacts_inc(void);
+	static void	ft_print(contact &contact);
+	void		ft_fill(void);
 
 private:
-	// char	*_first_name;
-	// char	*_last_name;
-	// char	*_nickname;
-	// char	*_login;
-	// char	*_postal_addr;
-	// char	*_e_mail;
-	// char	*_phone;
-	// char	*_bday;
-	// char	*_meal;
-	// char	*_underwear;
-	// char	*_secret;
-	int		_criterias;
-	int		_contacts_nb;
-	int		_getfoo(char *name) const;
-	int		_setfoo(int n, char *name);
-	int		_ft_add(void);
-	void	_ft_search(void);
-	char 	**contact[8];
-	char	*criterias[11];
+	std::string	_first_name;
+	std::string	_last_name;
+	std::string	_nickname;
+	std::string	_login;
+	std::string	_postal_addr;
+	std::string	_e_mail;
+	std::string	_phone;
+	std::string	_bday;
+	std::string	_meal;
+	std::string	_underwear;
+	std::string	_secret;
+	static int	_contacts_nb;
 };
+
+int			getfoo(std::string name, contact contact[8]);
+int			setfoo(contact &contact, int n);
+void		ft_search(contact contact[8]);
+void		ft_start(contact contact[8], char *buf);
 
 #endif

@@ -1,85 +1,60 @@
 #include "phonebook.hpp"
 
-// Écrivez un incroyable programme qui se comporte comme un annuaire nul.
-// Prenez le temps de donner à votre exécutable un nom pertinent. Lorsque le programme
-// démarre, il demande l’input de l’utilisateur : vous devez accepter la commande ADD, la
-// commande SEARCH ou la commande EXIT. Toute autre entrée est supprimée.
-// Le programme commence vide (pas de contacts), n’utilise pas d’allocation dynamique
-// et ne peut pas stocker plus de 8 contacts. Si un neuvième contact est ajouté, veuillez
-// définir un comportement pertinent.
-
-phonebook::phonebook(void)
-{
-	this->_contacts_nb = 0;
-	this->_criterias = 11;
-	this->criterias = {
-		"first name", "last name", "nickname", "login", "postal address", 
-		"e-mail", "phone number", "birthday date", "favorite meal", "underwear color", 
-		"darkest secret"
-	};
-	std::cout << "Constructor called" << std::endl;
-
-	return ;
-}
-
-phonebook::~phonebook(void)
+contact::contact(void)
 {
 	return ;
 }
 
-int		phonebook::_getfoo(char *name) const
-{
-	int i;
-	int	j;
+int contact::_contacts_nb = 0;
 
-	for (i = 0; i < this->_contacts_nb; i++)
-		for (j = 0; j < this->_criterias; j++)
-			if (!strcmp(name, this->contact[i][j]))
-				return -1;
-	return 0;
+contact::~contact(void)
+{
+	return ;
 }
 
-void	phonebook::_ft_search(char *name)
+void	ft_search(contact contact[8])
 {
-	(void)name;
-}
-
-int	phonebook::_setfoo(int n, char *name)
-{
-	int	i;
-	char		buf[512];
-
-	std::cout << "Enter an input (ADD, SEARCH, EXIT) : ";
-	std::cin >> buf;
-	if (this->_contacts_nb == 8)
-		return -1;
-	for (i =  0; i < this->_criterias; i++)
-	{
-		this->contact[this->_contacts_nb][i] = name;
-		this->_contacts_nb++;
+	int	n = contact::ft_contacts_nb();
+	int	contact_id = -1;
+	if (n == 0)
+		std::cout << "You do not have any contact in your phonebook :(" << std::endl;
+	else
+	{	
+		std::cin.ignore();
+		std::cout << "Which contact do you want to see ? "; std::cout << "Choose an integer between 0 and "; std::cout << (n - 1); std::cout << " : ";
+		std::cin >> contact_id;
+		if (contact_id < 0 || contact_id >= n){
+			std::cout << "Error, you enter a wrong contact id. Please, choose an integer between 0 and "; std::cout << (n - 1); std::cout << " " << std::endl;}
+		else
+			contact::ft_print(contact[contact_id]);
 	}
-	return 0;
+	return ;
 }
 
-int		phonebook::_ft_add(void)
+int	setfoo(contact &contact, int n)
 {
-	char		buf[512];
-
-	std::cout << "Enter an input (ADD, SEARCH, EXIT) : ";
-	std::cin >> buf;
-	if (this->_getfoo(name) == -1)
-		std::cout << "Error, you have already add this phone contact !" << std::endl;
-	else if (this->_setfoo(this->_contacts_nb, name) == -1)
-		std::cout << "Error, you have already 8 phone contacts !" << std::endl;
+	if (n == 8)
+		return -1;
+	contact.ft_fill();
+	contact::ft_contacts_inc();
 	return 0;
 }
 
-void	phonebook::ft_start(phonebook instance, char *buf)
+static void	ft_add(contact contact[8])
+{
+	int n = contact::ft_contacts_nb();
+
+	if (setfoo(contact[n], n) == -1)
+		std::cout << "Error, you have already 8 phone contacts !" << std::endl;	
+	return ;
+}
+
+void	ft_start(contact contact[8], char *buf)
 {
 	if (!strcmp(buf, "ADD"))
-		instance._ft_add();
+		ft_add(contact);
 	else if (!strcmp(buf, "SEARCH"))
-		instance._ft_search();
+		ft_search(contact);
 
 	return ;
 }
@@ -87,15 +62,19 @@ void	phonebook::ft_start(phonebook instance, char *buf)
 int main (void)
 {
 	char		buf[512];
-	phonebook	instance;
+	contact		contact[8];
 
-	std::cout << "Enter an input (ADD, SEARCH, EXIT) : ";
-	std::cin >> buf;
-	if (!strcmp(buf, "EXIT"))
-		std::cout << "Bye bye !" << std::endl;
-	else if (!strcmp(buf, "ADD") || !strcmp(buf, "SEARCH"))
-		instance.ft_start(instance, buf);
-	else
-		std::cout << "Error, wrong argument !" << std::endl;
+	while (1)
+	{
+		std::cout << "Enter an input (ADD, SEARCH, EXIT) : ";
+		std::cin >> buf;
+		if (!strcmp(buf, "EXIT"))
+			break ;
+		else if (!strcmp(buf, "ADD") || !strcmp(buf, "SEARCH"))
+			ft_start(contact, buf);
+		else
+			std::cout << "Error, wrong argument !" << std::endl;
+	}
+	std::cout << "Bye bye ! :)" << std::endl;
 	return 0;
 }
