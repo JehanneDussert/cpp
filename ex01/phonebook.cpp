@@ -15,19 +15,30 @@ contact::~contact(void)
 void	ft_search(contact contact[8])
 {
 	int	n = contact::ft_contacts_nb();
-	int	contact_id = -1;
+	int	contact_id = 0;
+	int error;
+
 	if (n == 0)
+	{
 		std::cout << "You do not have any contact in your phonebook :(" << std::endl;
-	else
-	{	
-		std::cin.ignore();
-		std::cout << "Which contact do you want to see ? "; std::cout << "Choose an integer between 0 and "; std::cout << (n - 1); std::cout << " : ";
-		std::cin >> contact_id;
-		if (contact_id < 0 || contact_id >= n){
-			std::cout << "Error, you enter a wrong contact id. Please, choose an integer between 0 and "; std::cout << (n - 1); std::cout << " " << std::endl;}
-		else
-			contact::ft_print(contact[contact_id]);
+		return ;
 	}
+	ft_print_phone(contact);
+	while (contact_id <= 0 || contact_id > n || error)
+	{	
+		std::cin.clear();
+		std::cin.ignore();
+		std::cout << "Choose an integer between 1 and "; std::cout << n; std::cout << " : ";
+		std::cin >> contact_id;
+		if ((error = std::cin.fail())){
+			std::cout << "Error, you enter a wrong contact id." << std::endl;
+			contact_id = -1;	
+			std::cin.clear();
+			std::cin.ignore();
+			continue ;
+		}
+	}
+	contact::ft_print(contact[contact_id - 1]);
 	return ;
 }
 

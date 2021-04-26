@@ -36,6 +36,62 @@ void	contact::ft_print(contact &contact)
 	std::cout << contact._secret << std::endl;
 }
 
+void	contact::ft_print_contact(void)
+{
+	unsigned long int i;
+	unsigned long int spaces = 10 - this->_first_name.size();
+
+	std::cout << '|';
+	for (i = 0; i < spaces && spaces < 9; i++)
+		std::cout << ' ';
+	if (spaces < 0 || spaces > 10){
+		for (i = 0; i < 9; i++)
+			std::cout << this->_first_name[i];
+		std::cout << ".";
+	}
+	else
+		std::cout << this->_first_name;
+	std::cout << '|';
+	spaces = 10 - this->_last_name.size();
+	for (i = 0; i < spaces && spaces < 9; i++)
+		std::cout << ' ';	
+	if (spaces < 0 || spaces > 10){
+		for (i = 0; i < 9; i++)
+			std::cout << this->_last_name[i];
+		std::cout << ".";
+	}
+	else
+		std::cout << this->_last_name;
+	std::cout << '|';
+	for (i = 0; i < spaces && spaces < 9; i++)
+		std::cout << ' ';
+	if (spaces < 0 || spaces > 10){
+		for (i = 0; i < 9; i++)
+			std::cout << this->_nickname[i];
+		std::cout << ".";
+	}
+	else
+		std::cout << this->_nickname;
+	std::cout << '|' << std::endl;
+
+}
+
+void	ft_print_phone(contact contact[8])
+{
+	int i;
+	int j;
+	int n = contact::ft_contacts_nb();
+
+	std::cout << "|     Index|First name| Last name|  Nickname|" << std::endl;
+	for (i = 0; i < n; i++){
+		std::cout << '|';
+		for (j = 0; j < 9; j++)
+			std::cout << ' ';
+		std::cout << i + 1;
+		contact[i].ft_print_contact();
+	}
+}
+
 void	contact::ft_fill(void)
 {
 	std::cin.ignore();

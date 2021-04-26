@@ -17,6 +17,7 @@ public:
 	static void ft_contacts_inc(void);
 	static void	ft_print(contact &contact);
 	void		ft_fill(void);
+	void		ft_print_contact(void);
 
 private:
 	std::string	_first_name;
@@ -36,6 +37,7 @@ private:
 int			getfoo(std::string name, contact contact[8]);
 int			setfoo(contact &contact, int n);
 void		ft_search(contact contact[8]);
+void		ft_print_phone(contact contact[8]);
 void		ft_start(contact contact[8], char *buf);
 
 #endif
