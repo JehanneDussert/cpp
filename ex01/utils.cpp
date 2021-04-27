@@ -36,44 +36,30 @@ void	contact::ft_print(contact &contact)
 	std::cout << contact._secret << std::endl;
 }
 
-void	contact::ft_print_contact(void)
+void	ft_draw_column(std::string str)
 {
 	unsigned long int i;
-	unsigned long int spaces = 10 - this->_first_name.size();
+	unsigned long int spaces = 10 - str.size();
 
-	std::cout << '|';
 	for (i = 0; i < spaces && spaces < 9; i++)
 		std::cout << ' ';
 	if (spaces < 0 || spaces > 10){
 		for (i = 0; i < 9; i++)
-			std::cout << this->_first_name[i];
+			std::cout << str[i];
 		std::cout << ".";
 	}
 	else
-		std::cout << this->_first_name;
+		std::cout << str;
 	std::cout << '|';
-	spaces = 10 - this->_last_name.size();
-	for (i = 0; i < spaces && spaces < 9; i++)
-		std::cout << ' ';	
-	if (spaces < 0 || spaces > 10){
-		for (i = 0; i < 9; i++)
-			std::cout << this->_last_name[i];
-		std::cout << ".";
-	}
-	else
-		std::cout << this->_last_name;
-	std::cout << '|';
-	for (i = 0; i < spaces && spaces < 9; i++)
-		std::cout << ' ';
-	if (spaces < 0 || spaces > 10){
-		for (i = 0; i < 9; i++)
-			std::cout << this->_nickname[i];
-		std::cout << ".";
-	}
-	else
-		std::cout << this->_nickname;
-	std::cout << '|' << std::endl;
+}
 
+void	contact::ft_print_contact(void)
+{
+	std::cout << '|';
+	ft_draw_column(this->_first_name);
+	ft_draw_column(this->_last_name);
+	ft_draw_column(this->_nickname);
+	std::cout << std::endl;
 }
 
 void	ft_print_phone(contact contact[8])
