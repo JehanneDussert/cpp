@@ -1,12 +1,11 @@
 NAME = Zombie
 
 SRCS = Zombie.cpp ZombieHorde.cpp main.cpp
-
 OBJS = $(SRCS:.cpp=.o)
 
 CXX = clang++
 
-CXXFLAGS += -Wall -Wextra -std=c++98
+CXXFLAGS += -Wall -Wextra -std=c++98 -std=c++11 -O3
 
 all : $(NAME)
 

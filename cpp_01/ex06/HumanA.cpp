@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jehannedussert <marvin@42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/05/04 16:40:48 by jehannedu         #+#    #+#             */
+/*   Updated: 2021/05/04 16:40:50 by jehannedu        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string name, Weapon &weapon) : _name(name), _weapon(weapon)
+HumanA::HumanA(std::string name, Weapon &weapon) : _weapon(weapon), _name(name)
 {
     return ;
 }
