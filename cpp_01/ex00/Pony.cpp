@@ -12,39 +12,55 @@
 
 #include "Pony.hpp"
 
-void	Pony::ponyOnTheStack(Pony &Pony)
+void	Pony::ft_fill(void)
 {
-	if (!Pony._characteristic.compare("fast")){
-		std::cout << Pony._name << " gallops with its " << Pony._mane << " mane in the wind ! Incredible, it jumps the obstales without difficulty !!\n";
-		std::cout << "Bravo " << Pony._name << " !!!\n";
-		Pony::_first_result = 1;
+	std::cout << "I need some informations about " << "\033[1;33m" << this->_name << "\033[0m" << " !\n";
+	std::cout << "How old is it ? ";
+	getline(std::cin, this->_age);
+	std::cout << "Does it gallop fast or slow? ";
+	getline(std::cin, this->_characteristic);
+	std::cout << "Does it have a long mane or a short one? ";
+	getline(std::cin, this->_mane);
+	std::cout << "\033[1;33m*\033[0m \033[1;32mYour pony is ready !\033[0m \033[1;33m*\033[0m\n";
+}
+
+void	ponyOnTheStack(void)
+{
+	Pony	pony; // Stack
+
+	pony.ft_fill();
+	if (!pony._characteristic.compare("fast")){
+		std::cout << pony._name << " gallops with its " << pony._mane << " mane in the wind ! Incredible, it jumps the obstales without difficulty !!\n";
+		std::cout << "Bravo " << pony._name << " !!!\n";
 	}
 	else
 	{
-		std::cout << Pony._name << " starts off well, but soon gets left behind by the other ponies :( ";
-		if (!Pony._mane.compare("long"))
+		std::cout << pony._name << " starts off well, but soon gets left behind by the other ponies :( ";
+		if (!pony._mane.compare("long"))
 			std::cout << "Oh no, little pony! His long mane blocks his view and he runs into the bushes !\n";
-		std::cout << "Poor " << Pony._name << "...\n";
-		Pony::_first_result = 0;
+		std::cout << "Poor " << pony._name << "...\n";
 	}
 	return ;
 }
 
-void	Pony::ponyOnTheHeap(Pony* Pony)
+void	ponyOnTheHeap(void)
 {
-	if (!Pony->_characteristic.compare("fast"))
+	Pony*	pony = new Pony; // Heap
+
+	pony->ft_fill();
+	if (!pony->_characteristic.compare("fast"))
 	{
-		std::cout << Pony->_name << " gallops with its " << Pony->_mane << " mane in the wind ! Incredible, it jumps the obstales without difficulty !!\n";
-		std::cout << "Bravo " << Pony->_name << " !!!\n";
-		Pony::_second_result = 1;
+		std::cout << pony->_name << " gallops with its " << pony->_mane << " mane in the wind ! Incredible, it jumps the obstales without difficulty !!\n";
+		std::cout << "Bravo " << pony->_name << " !!!\n";
 	}
 	else
 	{
-		std::cout << Pony->_name << " starts off well, but soon gets left behind by the other ponies :( ";
-		if (!Pony->_mane.compare("long"))
+		std::cout << pony->_name << " starts off well, but soon gets left behind by the other ponies :( ";
+		if (!pony->_mane.compare("long"))
 			std::cout << "Oh no, little pony! His long mane blocks his view and he runs into the bushes ! ";
-		std::cout << "Poor " << Pony->_name << "...\n";
-		Pony::_second_result = 0;
+		std::cout << "Poor " << pony->_name << "...\n";
 	}
+	delete pony;
+
 	return ;
 }

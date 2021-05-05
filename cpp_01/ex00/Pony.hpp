@@ -22,14 +22,11 @@
 class	Pony
 {
 	private:
+	public:
 		std::string	_name;
 		std::string	_mane;
 		std::string	_age;
 		std::string	_characteristic;
-		int	_first_result;
-		int	_second_result;
-
-	public:
 		Pony()
 		{
 			std::cout << "\033[1;33m*\033[0m \033[1;32mA new pony is born ! :)\033[0m \033[1;33m*\033[0m\n";
@@ -42,10 +39,10 @@ class	Pony
 			std::cout << "\033[1;31mYour pony is dead :(\033[0m ";
 			std::cout << "Good bye " << this->_name << " ..." << std::endl;
 		}
-		void	print_winner(Pony &first, Pony* second);
-		void	ponyOnTheStack(Pony &Pony);
-		void	ponyOnTheHeap(Pony* Pony);
 		void	ft_fill(void);
 };
+
+void	ponyOnTheStack(void);
+void	ponyOnTheHeap(void);
 
 #endif
