@@ -5,7 +5,7 @@ OBJS = $(SRCS:.cpp=.o)
 
 CXX = clang++
 
-CXXFLAGS += -Wall -Wextra -std=c++98 -std=c++11 -O3
+CXXFLAGS += -Wall -Wextra -std=c++98
 
 all : $(NAME)
 

@@ -41,14 +41,17 @@ ZombieHorde::ZombieHorde(int n) : n(n)
         this->z[i].type = type[std::rand() % 11];
     }
     this->announce(this->z);
-    delete [] this->z;
-    for (i = 0; i < n; i++)
-        std::cout << "\033[1;31mSay goodbye to " << this->z[i].name << "\033[0m\n";
+    
     return ;
 }
 
 ZombieHorde::~ZombieHorde(void)
 {
+    int i;
+
+    for (i = 0; i < n; i++)
+        std::cout << "\033[1;31mSay goodbye to " << this->z[i].name << "\033[0m\n";
+    delete [] this->z;
     return ;
 }
 
