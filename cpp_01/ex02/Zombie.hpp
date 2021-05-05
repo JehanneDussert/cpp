@@ -24,7 +24,10 @@ class	Zombie
 		std::string	name;
 		std::string	type;
 		Zombie(std::string name, std::string type);
-		~Zombie(void);
+		~Zombie(void)
+		{
+			std::cout << "\033[1;31mSay goodbye to " << this->name << "\033[0m\n";
+		}
 		void		announce(void);
 };
 

@@ -34,5 +34,6 @@ void	ZombieEvent::randomChump(void)
 	};
     Zombie *z = newZombie(random[std::rand() % 14]);
 	z->announce();
-	std::cout << "\033[1;31mSay goodbye to " << z->name << "\033[0m\n";
+	
+	delete z;
 }

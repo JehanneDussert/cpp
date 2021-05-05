@@ -30,32 +30,26 @@ int main(void)
     Zombie      z1(name[std::rand() % 14], type[std::rand() % 11]);
     Zombie      z2(name[std::rand() % 14], type[std::rand() % 11]);
     Zombie      *z3;
-    Zombie      *z4;
     ZombieEvent event1;
-    ZombieEvent event2;
-    ZombieEvent event3;
-    ZombieEvent event4;
 
     z1.announce();
     z2.announce();
+
     std::cout << "\n\nMore zombies...\n\n";
-    event3.setZombieType("cheerful");
-    event4.setZombieType("raging");
-    z3 = event3.newZombie("Lili");
-    z4 = event4.newZombie("Lulu");
+
+    event1.setZombieType("cheerful");
+    z3 = event1.newZombie("Lili");
     z3->announce();
-    z4->announce();
+    delete z3;
+
     std::cout << "\n\nPlease nooooo...\n\n";
     event1.setZombieType(type[std::rand() % 11]);
     event1.randomChump();
-    event2.setZombieType(type[std::rand() % 11]);
-    event2.randomChump();
-
-    std::cout << "\033[1;31mSay goodbye to " << z3->name << "\033[0m\n";
-    delete z3;
-    std::cout << "\033[1;31mSay goodbye to " << z4->name << "\033[0m\n";
-    delete z4;    
-    std::cout << "\033[1;31mSay goodbye to " << z1.name << "\033[0m\n";
-    std::cout << "\033[1;31mSay goodbye to " << z2.name << "\033[0m\n";
+    event1.setZombieType(type[std::rand() % 11]);
+    event1.randomChump();
+    event1.setZombieType(type[std::rand() % 11]);
+    event1.randomChump();
+    event1.setZombieType(type[std::rand() % 11]);
+    event1.randomChump();
     return 0;
 }
