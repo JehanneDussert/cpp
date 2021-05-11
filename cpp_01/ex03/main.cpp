@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "ZombieHorde.hpp"
-#include <random>
 
 int main(void)
 {
