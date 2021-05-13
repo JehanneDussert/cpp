@@ -18,13 +18,6 @@ class	Fixed
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
 		Fixed & operator=(Fixed const &rhs);
-        
-        //Un overload d’opérateur d’assignation
-    
-        //Une fonction membre qui renvoie la valeur brute du nombre à point fixe.
-        //int getRawBits(void) const;
-        //Une fonction membre qui set la valeur du nombre à point fixe.
-        //void setRawBits(int const raw);
 };
 
 #endif
