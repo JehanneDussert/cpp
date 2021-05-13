@@ -1,6 +1,5 @@
 #include "Fixed.hpp"
 
-
 Fixed::Fixed(void) : _value(0)
 {
 	std::cout << "Default constructor called\n";
@@ -44,5 +43,3 @@ void	Fixed::setRawBits(int const raw)
 
     return ;
 }
-
-
