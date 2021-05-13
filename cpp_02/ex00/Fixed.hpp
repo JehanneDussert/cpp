@@ -2,9 +2,6 @@
 # define FIXED_HPP
 
 # include <iostream>
-# include <string>
-# include <sstream>
-# include <string.h>
 
 class	Fixed
 {
