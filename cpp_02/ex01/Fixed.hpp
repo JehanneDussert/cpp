@@ -8,8 +8,6 @@ class	Fixed
 {
 	private:
         int                 _value;
-		//int					_int;
-        //float               _float;
 		const static int	_bits = 8;
 	public:
 		Fixed(void);
