@@ -10,8 +10,8 @@ Fixed::Fixed(void) : _value(0)
 Fixed::Fixed(Fixed const &src)
 {
 	std::cout << "Copy constructor called\n";
-
 	*this = src;
+	
     return ;
 }
 
