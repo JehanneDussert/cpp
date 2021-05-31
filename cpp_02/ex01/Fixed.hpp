@@ -24,7 +24,4 @@ class	Fixed
 
 std::ostream    &operator<<(std::ostream &o, Fixed const &rhs);
 
-//Vous ajouterez aussi l’overload suivant dans votre header et votre fichier source :
-//•Overload de«qui insère une représentation de votre nombre à point fixe dansl’output demandé.
-
 #endif
