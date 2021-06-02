@@ -20,8 +20,8 @@ class	Fixed
 		int		toInt(void) const;
 		void	setRawBits(int const raw);
 		Fixed	&operator=(Fixed const &rhs);
-		bool	operator>(Fixed const &rhs);
-		bool	operator<(Fixed const &rhs);
+		bool	operator>(const Fixed &rhs) const;
+		bool	operator<(const Fixed &rhs) const;
 		bool	operator>=(Fixed const &rhs);
 		bool	operator<=(Fixed const &rhs);
 		bool	operator==(Fixed const &rhs);
@@ -31,11 +31,15 @@ class	Fixed
 		Fixed	operator*(Fixed const &rhs);
 		Fixed	operator/(Fixed const &rhs);
 		Fixed	&operator++(void);
-		Fixed	operator++(int n);
+		Fixed	operator++(int);
 		Fixed	&operator--(void);
-		Fixed	operator--(int n);
+		Fixed	operator--(int);
+		const static Fixed	&max(const Fixed &a, const Fixed &b);
+		const static Fixed	&min(const Fixed &a, const Fixed &b);
 };
 
 std::ostream	&operator<<(std::ostream &o, Fixed const &rhs);
+const Fixed		&max(const Fixed &a, const Fixed &b);
+const Fixed		&min(const Fixed &a, const Fixed &b);
 
 #endif
