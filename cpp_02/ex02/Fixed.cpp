@@ -77,7 +77,7 @@ bool	Fixed::operator>=(Fixed const &rhs)
 
 bool	Fixed::operator<=(Fixed const &rhs)
 {
-	if (*this >= rhs)
+	if (*this >= rhs && *this != rhs)
 		return false;
 	return true;
 }
