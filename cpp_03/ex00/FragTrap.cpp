@@ -94,7 +94,8 @@ void	FragTrap::vaulthunter_dot_exe(std::string const & target)
     std::srand(time(0));
     std::string attack[] = {
 		"balance Norminet ", "renverse son café plein de fourmies à ", 
-		"fait un croche-pattes dans les escaliers à ", "ecrase avec ses coudes ", "balance des frites carbo du foodtruck sur "
+		"fait un croche-pattes dans les escaliers à ", "ecrase avec ses coudes ",
+		"balance des frites carbo du foodtruck sur "
 	};
 	if (this->_energy >= 25)
 	{
