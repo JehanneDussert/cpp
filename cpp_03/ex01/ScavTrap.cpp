@@ -13,10 +13,10 @@ _ranged(20), _armor(5)
 
     std::srand(time(0));
     std::string apparition[] = {
-		" apparait caché derriere le foodtruck ", " descend du ciel pour casser des gueules ", 
-		" retire sa cape d'invisibilité ", " sort de sous une banquette de la Cantina "
+		" apparait dans un nuage de fumee ", " debarque à 42 ", 
+		" sort de nulle part ", " fonce dans le tas "
 	};
-	std::cout << "* FR4G-TP * " << name << apparition[std::rand() % 4] << std::endl;
+	std::cout << "* SC4V-TP * " << name << apparition[std::rand() % 4] << std::endl;
 	this->rangedAttack("Bob");
 	this->takeDamage(80);
 	this->meleeAttack("Yolanda");
@@ -37,7 +37,7 @@ ScavTrap::ScavTrap(ScavTrap const &src)
 
 ScavTrap::~ScavTrap(void)
 {
-	std::cout << "* FR4G-TP * " << this->_name << " disparait dans la brume !\n";
+	std::cout << "* SC4V-TP * " << this->_name << " fuit 42 !\n";
 
 	return ;
 }
@@ -51,14 +51,14 @@ ScavTrap	&ScavTrap::operator=(ScavTrap const &rhs)
 
 void	ScavTrap::rangedAttack(std::string const & target)
 {
-	std::cout << "* FR4G-TP * " << this->_name << " attaque " << target << " a distance, causant " << this->_ranged << " points de degats :(\n";
+	std::cout << "* SC4V-TP * " << this->_name << " attaque " << target << " au corps et provoque " << this->_ranged << " points de degats :(\n";
 
 	return ;
 }
 
 void	ScavTrap::meleeAttack(std::string const & target)
 {
-	std::cout << "* FR4G-TP * " << this->_name << " attaque " << target << " a distance, causant " << this->_melee << " points de degats :(\n";
+	std::cout << "* SC4V-TP * " << this->_name << " attaque " << target << " avec sa team et cause " << this->_melee << " points de degats :(\n";
 
 	return ;
 }
@@ -67,7 +67,7 @@ void	ScavTrap::takeDamage(unsigned int amount)
 {
 	amount >= this->_armor ? amount -= this->_armor : amount = 0;
 	this->_hit >= amount ? this->_hit -= amount : this->_hit = 0;
-	std::cout << "* FR4G-TP * " << this->_name << " se prend une grosse attaque et a maintenant " << this->_hit << " points de vie ! :(\n";
+	std::cout << "* SC4V-TP * " << this->_name << " se prend une grosse attaque et a maintenant " << this->_hit << " points de vie ! :(\n";
 	if (this->_hit == 0)
 	{
 		std::cout << "** ECHEC DU NIVEAU " << this->_level << " **\n";
@@ -81,7 +81,7 @@ void	ScavTrap::beRepaired(unsigned int amount)
 {
 	this->_hit + amount < this->_max_hit ? this->_hit += amount : this->_hit = this->_max_hit;
 	this->_energy + amount < this->_max_energy ? this->_energy += amount : this->_energy = this->_max_energy;
-	std::cout << "* FR4G-TP * " << this->_name << " récupère et a maintenant " << this->_hit << " points de vie et " << this->_energy << " points d'energie ! :)\n";
+	std::cout << "* SC4V-TP * " << this->_name << " récupère et a maintenant " << this->_hit << " points de vie et " << this->_energy << " points d'energie ! :)\n";
 	if (this->_hit == this->_max_hit && this->_energy == this->_max_energy)
 	{
 		std::cout << "\n** NIVEAU " << this->_level << " COMPLETE POUR " << this->_name << " qui devient " << "Squatter " + this->_name << " !!! **\n\n";
@@ -94,19 +94,26 @@ void	ScavTrap::beRepaired(unsigned int amount)
 
 void	ScavTrap::challengeNewcomer(std::string const & target)
 {
-    std::srand(time(0));
+	int	choice;
+
+	std::cin.clear();
+	std::cin.ignore();
+	std::cout << "Tu peux :\n1) Distraire Norminet avec de la paté\n2) Balancer un piscineux en offrande\n";
+	std::cout << "3) Demander au gardien d'intervenir\n4) L'amadouer avec une sérénade\n5) Chatouiller ses petites papattes\n";
+	std::cout << "Choisis ton attaque (1 à 5): ";
+	std::cin >> choice;
     std::string attack[] = {
-		"distrait Norminet avec de la paté", "balance un piscineux en offrande", 
-		"demande au gardien de calmer Norminet comme une grosse victime",
-		"amadoue Norminet avec une sérénade", "chatouille les petites papattes de Norminet"
+		"distrait avec de la paté ", "balance un piscineux en offrande à ", 
+		"demande au gardien de calmer ",
+		"amadoue avec une sérénade ", "chatouille les petites papattes de "
 	};
 	if (this->_energy >= 25)
 	{
-		std::cout << "* FR4G-TP * " << this->_name << " utilise une attaque speciale et " << attack[std::rand() % 5] << " !\n";
+		std::cout << "* SC4V-TP * " << this->_name << " utilise une attaque speciale et " << attack[choice - 1] << target << " !\n";
 		this->_energy -= 25;
 	}
 	else
-		std::cout << "* FR4G-TP * << " << this->_name << "n'a plus assez d'energie pour lancer l'attaque speciale :( Il te reste " << this->_energy << " points d'energie !\n";
+		std::cout << "* SC4V-TP * << " << this->_name << "n'a plus assez d'energie pour lancer l'attaque speciale :( Il te reste " << this->_energy << " points d'energie !\n";
 	
 	return ;
 }

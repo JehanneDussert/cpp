@@ -54,7 +54,7 @@ void	FragTrap::meleeAttack(std::string const & target)
 {
 	FragTrap	t(target);
 
-	std::cout << "* FR4G-TP * " << this->_name << " attaque " << target << " a distance, causant " << this->_melee << " points de degats :(\n";
+	std::cout << "* FR4G-TP * " << this->_name << " attaque " << target << " en groupe, causant " << this->_melee << " points de degats :(\n";
 	t.takeDamage(this->_melee);
 
 	return ;

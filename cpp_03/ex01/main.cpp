@@ -10,6 +10,7 @@ int main(void)
     bot1.meleeAttack("Nicolas");
     bot1.vaulthunter_dot_exe("Delphine");
 
+    std::cout << std::endl;
     ScavTrap bot2("Lulu");
 
     return 0;
