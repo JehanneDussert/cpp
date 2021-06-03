@@ -2,6 +2,8 @@
 
 ClapTrap::ClapTrap(void)
 {
+	std::cout << "** CL4P-TP ** constructor called !\n";
+
 	return ;
 }
 
