@@ -4,9 +4,9 @@
 
 int main(void)
 {
-    ClapTrap bot("Zoe");
-    FragTrap bot1;
-    //ScavTrap bot2;
+    //ClapTrap bot("Zoe");
+    FragTrap bot1("Zoe");
+    ScavTrap bot2;
 
     return 0;
 }

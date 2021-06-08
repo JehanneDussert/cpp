@@ -3,32 +3,30 @@
 ScavTrap::ScavTrap(void)
 {
 	std::cout << "** SC4V-TP ** constructor called !\n";
+	std::cout << "Norminet surgit pour attaquer " << std::endl;
+	this->challengeNewcomer("Norminet");
 
 	return ;
 }
 
-// ScavTrap::ScavTrap(std::string name) : _hit(100), _max_hit(100),
-// _energy(100), _max_energy(100), _level(1), _name(name), _melee(30),
-// _ranged(20), _armor(5)
-// {
-// 	char		buf[512];
+ScavTrap::ScavTrap(std::string name)
+{
+	std::srand(time(0));
+	
+	this->_name = name;
+    std::string apparition[] = {
+		" apparait dans un nuage de fumee ", " debarque à 42 ", 
+		" sort de nulle part ", " fonce dans le tas "
+	};
+	std::cout << "* SC4V-TP * " << this->_name << apparition[std::rand() % 4] << std::endl;
+	this->rangedAttack("Bob");
+	this->takeDamage(80);
+	this->meleeAttack("Yolanda");
+	this->beRepaired(90);
+	this->challengeNewcomer("Xavier");
 
-//     std::srand(time(0));
-//     std::string apparition[] = {
-// 		" apparait dans un nuage de fumee ", " debarque à 42 ", 
-// 		" sort de nulle part ", " fonce dans le tas "
-// 	};
-// 	std::cout << "* SC4V-TP * " << name << apparition[std::rand() % 4] << std::endl;
-// 	this->rangedAttack("Bob");
-// 	this->takeDamage(80);
-// 	this->meleeAttack("Yolanda");
-// 	this->beRepaired(90);
-// 	std::cout << "Norminet surgit pour attaquer " << name << ", souhaites-tu l'affronter ? [y/n] ";
-// 	std::cin >> buf;
-// 	if (!strcmp(buf, "y"))
-// 		this->challengeNewcomer("Norminet");
-// 	return ;
-// }
+	return ;
+}
 
 ScavTrap::ScavTrap(ScavTrap const &src)
 {
@@ -96,14 +94,8 @@ ScavTrap	&ScavTrap::operator=(ScavTrap const &rhs)
 
 void	ScavTrap::challengeNewcomer(std::string const & target)
 {
-	int	choice;
+	std::srand(time(0));
 
-	std::cin.clear();
-	std::cin.ignore();
-	std::cout << "Tu peux :\n1) Distraire Norminet avec de la paté\n2) Balancer un piscineux en offrande\n";
-	std::cout << "3) Demander au gardien d'intervenir\n4) L'amadouer avec une sérénade\n5) Chatouiller ses petites papattes\n";
-	std::cout << "Choisis ton attaque (1 à 5): ";
-	std::cin >> choice;
     std::string attack[] = {
 		"distrait avec de la paté ", "balance un piscineux en offrande à ", 
 		"demande au gardien de calmer ",
@@ -111,7 +103,7 @@ void	ScavTrap::challengeNewcomer(std::string const & target)
 	};
 	if (this->_energy >= 25)
 	{
-		std::cout << "* SC4V-TP * " << this->_name << " utilise une attaque speciale et " << attack[choice - 1] << target << " !\n";
+		std::cout << "* SC4V-TP * " << this->_name << " utilise une attaque speciale et " << attack[std::rand() % 5] << target << " !\n";
 		this->_energy -= 25;
 	}
 	else
