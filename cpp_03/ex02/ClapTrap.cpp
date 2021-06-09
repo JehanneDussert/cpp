@@ -1,8 +1,6 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void) : _hit(100), _max_hit(100),
-_energy(100), _max_energy(100), _level(1), _melee(30),
-_ranged(20), _armor(5)
+ClapTrap::ClapTrap(void)
 {
 	std::cout << "** CL4P-TP ** constructor called !\n";
 
@@ -12,6 +10,15 @@ _ranged(20), _armor(5)
 ClapTrap::ClapTrap(ClapTrap const &src)
 {
 	*this = src;
+
+	return ;
+}
+
+ClapTrap::ClapTrap(int hit, int max_hit, int energy, int max_energy, int level, std::string name, 
+int melee, int ranged, int armor) : _hit(hit), _max_hit(max_hit), _energy(energy), 
+_max_energy(max_energy), _level(level), _name(name), _melee(melee), _ranged(ranged), _armor(armor)
+{
+	std::cout << "** CL4P-TP ** constructor called !\n";
 
 	return ;
 }

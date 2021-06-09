@@ -7,11 +7,10 @@ FragTrap::FragTrap(void)
 	return ;
 }
 
-FragTrap::FragTrap(std::string name)
+FragTrap::FragTrap(std::string name) : ClapTrap(100, 100, 100, 100, 1, name, 30, 20, 5)
 {
     std::srand(time(0));
 
-	this->_name = name;
     std::string apparition[] = {
 		" apparait caché derriere le foodtruck ", " descend du ciel pour casser des gueules ", 
 		" retire sa cape d'invisibilité ", " sort de sous une banquette de la Cantina "

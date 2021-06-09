@@ -24,7 +24,7 @@ class	ClapTrap
 	public:
 		ClapTrap(void);
 		ClapTrap(ClapTrap const &src);
-		ClapTrap(std::string name);
+		ClapTrap(int hit, int max_hit, int energy, int max_energy, int level, std::string name, int melee, int ranged, int armor);
 		~ClapTrap(void);
 		ClapTrap &operator=(ClapTrap const &rhs);
 };
