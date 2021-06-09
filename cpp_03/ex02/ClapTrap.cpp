@@ -1,26 +1,10 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void)
-{
-	std::cout << "** CL4P-TP ** constructor called !\n";
-
-	return ;
-}
-
-ClapTrap::ClapTrap(std::string name) : _hit(100), _max_hit(100),
-_energy(100), _max_energy(100), _level(1), _name(name), _melee(30),
+ClapTrap::ClapTrap(void) : _hit(100), _max_hit(100),
+_energy(100), _max_energy(100), _level(1), _melee(30),
 _ranged(20), _armor(5)
 {
-    std::srand(time(0));
-    std::string apparition[] = {
-		" apparait dans un nuage de fumee ", " debarque à 42 ", 
-		" sort de nulle part ", " fonce dans le tas "
-	};
-	std::cout << "* CL4P-TP * " << name << apparition[std::rand() % 4] << std::endl;
-	// this->rangedAttack("Bob");
-	// this->takeDamage(80);
-	// this->meleeAttack("Yolanda");
-	// this->beRepaired(90);
+	std::cout << "** CL4P-TP ** constructor called !\n";
 
 	return ;
 }
