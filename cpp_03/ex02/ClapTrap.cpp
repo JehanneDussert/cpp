@@ -39,9 +39,8 @@ ClapTrap	&ClapTrap::operator=(ClapTrap const &rhs)
 
 void	ClapTrap::rangedAttack(std::string const & target)
 {
-	ClapTrap	t;
+	ClapTrap	t(100, 100, 120, 100, 1, target, 30, 20, 5);
 
-	t._name = target;
 	std::cout << "* CL4P-TP * " << this->_name << " attaque " << target << " a distance, causant " << this->_ranged << " points de degats :(\n";
 	t.takeDamage(this->_ranged);
 
@@ -50,9 +49,8 @@ void	ClapTrap::rangedAttack(std::string const & target)
 
 void	ClapTrap::meleeAttack(std::string const & target)
 {
-	ClapTrap	t;
-
-	t._name = target;
+	ClapTrap	t(100, 100, 120, 100, 1, target, 30, 20, 5);
+	
 	std::cout << "* CL4P-TP * " << this->_name << " attaque " << target << " en groupe, causant " << this->_melee << " points de degats :(\n";
 	t.takeDamage(this->_melee);
 
