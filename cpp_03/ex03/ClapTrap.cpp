@@ -14,6 +14,13 @@ ClapTrap::ClapTrap(ClapTrap const &src)
 	return ;
 }
 
+ClapTrap::ClapTrap(std::string name) : _hit(100), _max_hit(100),
+_energy(100), _max_energy(100), _level(1), _name(name), _melee(30),
+_ranged(20), _armor(5)
+{
+	return ;
+}
+
 ClapTrap::ClapTrap(int hit, int max_hit, int energy, int max_energy, int level, std::string name, 
 int melee, int ranged, int armor) : _hit(hit), _max_hit(max_hit), _energy(energy), 
 _max_energy(max_energy), _level(level), _name(name), _melee(melee), _ranged(ranged), _armor(armor)
@@ -39,9 +46,8 @@ ClapTrap	&ClapTrap::operator=(ClapTrap const &rhs)
 
 void	ClapTrap::rangedAttack(std::string const & target)
 {
-	ClapTrap	t;
+	ClapTrap	t(100, 100, 120, 100, 1, target, 30, 20, 5);
 
-	t._name = target;
 	std::cout << "* CL4P-TP * " << this->_name << " attaque " << target << " a distance, causant " << this->_ranged << " points de degats :(\n";
 	t.takeDamage(this->_ranged);
 
@@ -50,9 +56,8 @@ void	ClapTrap::rangedAttack(std::string const & target)
 
 void	ClapTrap::meleeAttack(std::string const & target)
 {
-	ClapTrap	t;
+	ClapTrap	t(100, 100, 120, 100, 1, target, 30, 20, 5);
 
-	t._name = target;
 	std::cout << "* CL4P-TP * " << this->_name << " attaque " << target << " en groupe, causant " << this->_melee << " points de degats :(\n";
 	t.takeDamage(this->_melee);
 
