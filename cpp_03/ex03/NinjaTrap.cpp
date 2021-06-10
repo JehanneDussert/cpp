@@ -35,22 +35,16 @@ NinjaTrap	&NinjaTrap::operator=(NinjaTrap const &rhs)
 
 void	NinjaTrap::rangedAttack(std::string const & target)
 {
-	NinjaTrap	t;
-
-	t._name = target;
-	std::cout << "* NINJ4-TP * " << this->_name << " attaque " << target << " a distance, causant " << this->_ranged << " points de degats :(\n";
-	t.takeDamage(this->_ranged);
+	std::cout << "* NINJ4-TP * " << this->_name << " se fait attaquer par " << target << " a distance, causant " << this->_ranged << " points de degats :(\n";
+	this->takeDamage(this->_ranged);
 
 	return ;
 }
 
 void	NinjaTrap::meleeAttack(std::string const & target)
 {
-	NinjaTrap	t;
-
-	t._name = target;
-	std::cout << "* NINJ4-TP * " << this->_name << " attaque " << target << " en groupe, causant " << this->_melee << " points de degats :(\n";
-	t.takeDamage(this->_melee);
+	std::cout << "* NINJ4-TP * " << this->_name << " se fait attaquer par " << target << " en groupe, causant " << this->_melee << " points de degats :(\n";
+	this->takeDamage(this->_melee);
 
 	return ;
 }

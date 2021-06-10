@@ -15,6 +15,8 @@ int main(void)
 	t4.ninjaShoebox(t2);
 	t4.ninjaShoebox(t3);
 	t4.ninjaShoebox(t5);
+	t4.rangedAttack("Marc");
+	t4.meleeAttack("Nono");
 
     return 0;
 }
