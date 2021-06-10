@@ -86,28 +86,44 @@ void	NinjaTrap::beRepaired(unsigned int amount)
 
 void	NinjaTrap::ninjaShoebox(NinjaTrap const & target)
 {
-	std::cout << "* NINJ4-TP * " << this->_name << " attaque " << target._name << " avec un caillou\n";
+	int amount = 10;
+
+	std::cout << "* NINJ4-TP * " << this->_name << " attaque " << target._name << " avec un caillou et lui fait perdre " << amount << " points de vie ! :(\n";
+	if (target._hit <= 0)
+		std::cout << "** ECHEC DU NIVEAU " << target._level << " **\n";
 
 	return ;
 }
 
 void	NinjaTrap::ninjaShoebox(ClapTrap const & target)
 {
-	std::cout << "* NINJ4-TP * " << this->_name << " attaque " << target._name << " avec un baton\n";
+	int amount = 5;
+
+	std::cout << "* NINJ4-TP * " << this->_name << " attaque " << target._name << " avec un baton et lui fait perdre " << amount << " points de vie ! :(\n";
+	if (target._hit <= 0)
+		std::cout << "** ECHEC DU NIVEAU " << target._level << " **\n";
 
 	return ;
 }
 
 void	NinjaTrap::ninjaShoebox(ScavTrap const & target)
 {
-	std::cout << "* NINJ4-TP * " << this->_name << " attaque " << target._name << " avec un piscineux\n";
+	int amount = 50;
+
+	std::cout << "* NINJ4-TP * " << this->_name << " attaque " << target._name << " avec un piscineux et lui fait perdre " << amount << " points de vie ! :(\n";
+	if (target._hit <= 0)
+		std::cout << "** ECHEC DU NIVEAU " << target._level << " **\n";
 
 	return ;
 }
 
 void	NinjaTrap::ninjaShoebox(FragTrap const & target)
 {
-	std::cout << "* NINJ4-TP * " << this->_name << " attaque " << target._name << " avec un clavier\n";
+	int amount = 30;
+
+	std::cout << "* NINJ4-TP * " << this->_name << " attaque " << target._name << " avec un clavier et lui fait perdre " << amount << " points de vie ! :(\n";
+	if (target._hit == 0)
+		std::cout << "** ECHEC DU NIVEAU " << target._level << " **\n";
 
 	return ;
 }

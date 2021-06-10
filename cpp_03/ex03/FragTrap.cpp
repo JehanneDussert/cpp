@@ -16,11 +16,6 @@ FragTrap::FragTrap(std::string name) : ClapTrap(100, 100, 100, 100, 1, name, 30,
 		" retire sa cape d'invisibilité ", " sort de sous une banquette de la Cantina "
 	};
 	std::cout << "* FR4G-TP * " << this->_name << apparition[std::rand() % 4] << std::endl;
-	this->rangedAttack("Bob");
-	this->takeDamage(80);
-	this->meleeAttack("Yolanda");
-	this->beRepaired(90);
-	this->vaulthunter_dot_exe("Norminet");
 
 	return ;
 }
