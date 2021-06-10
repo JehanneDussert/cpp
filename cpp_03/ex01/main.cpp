@@ -13,5 +13,12 @@ int main(void)
     std::cout << std::endl;
     ScavTrap bot2("Lulu");
 
+    bot2.rangedAttack("Bob");
+	bot2.takeDamage(80);
+	bot2.meleeAttack("Yolanda");
+	bot2.beRepaired(90);
+	std::cout << "Norminet surgit pour attaquer\n";
+	bot2.challengeNewcomer("Norminet");
+
     return 0;
 }
