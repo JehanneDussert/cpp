@@ -2,6 +2,7 @@
 # define SCAVTRAP_HPP
 
 # include <iostream>
+# include <stdlib.h>
 
 # include "ClapTrap.hpp"
 

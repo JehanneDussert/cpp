@@ -9,13 +9,13 @@ FragTrap::FragTrap(void)
 
 FragTrap::FragTrap(std::string name) : ClapTrap(100, 100, 100, 100, 1, name, 30, 20, 5)
 {
-    std::srand(time(0));
+    srand(time(0));
 
     std::string apparition[] = {
 		" apparait caché derriere le foodtruck ", " descend du ciel pour casser des gueules ", 
 		" retire sa cape d'invisibilité ", " sort de sous une banquette de la Cantina "
 	};
-	std::cout << "* FR4G-TP * " << this->_name << apparition[std::rand() % 4] << std::endl;
+	std::cout << "* FR4G-TP * " << this->_name << apparition[rand() % 4] << std::endl;
 
 	return ;
 }
@@ -43,7 +43,7 @@ FragTrap	&FragTrap::operator=(FragTrap const &rhs)
 
 void	FragTrap::vaulthunter_dot_exe(std::string const & target)
 {
-    std::srand(time(0));
+    srand(time(0));
     std::string attack[] = {
 		"balance Norminet ", "renverse son café plein de fourmies à ", 
 		"fait un croche-pattes dans les escaliers à ", "ecrase avec ses coudes ",
@@ -51,7 +51,7 @@ void	FragTrap::vaulthunter_dot_exe(std::string const & target)
 	};
 	if (this->_energy >= 25)
 	{
-		std::cout << "* FR4G-TP * " << this->_name << " utilise une attaque speciale et " << attack[std::rand() % 5] << target << " !\n";
+		std::cout << "* FR4G-TP * " << this->_name << " utilise une attaque speciale et " << attack[rand() % 5] << target << " !\n";
 		this->_energy -= 25;
 	}
 	else

@@ -9,12 +9,12 @@ ScavTrap::ScavTrap(std::string name) : _hit(100), _max_hit(100),
 _energy(100), _max_energy(100), _level(1), _name(name), _melee(30),
 _ranged(20), _armor(5)
 {
-	std::srand(time(0));
+	srand(time(0));
     std::string apparition[] = {
 		" apparait dans un nuage de fumee ", " debarque à 42 ", 
 		" sort de nulle part ", " fonce dans le tas "
 	};
-	std::cout << "* SC4V-TP * " << name << apparition[std::rand() % 4] << std::endl;
+	std::cout << "* SC4V-TP * " << name << apparition[rand() % 4] << std::endl;
 
 	return ;
 }
@@ -85,7 +85,7 @@ void	ScavTrap::beRepaired(unsigned int amount)
 
 void	ScavTrap::challengeNewcomer(std::string const & target)
 {
-	std::srand(time(0));
+	srand(time(0));
     std::string attack[] = {
 		"distrait avec de la paté ", "balance un piscineux en offrande à ", 
 		"demande au gardien de calmer ",
@@ -93,7 +93,7 @@ void	ScavTrap::challengeNewcomer(std::string const & target)
 	};
 	if (this->_energy >= 25)
 	{
-		std::cout << "* SC4V-TP * " << this->_name << " utilise une attaque speciale et " << attack[std::rand() % 5] << target << " !\n";
+		std::cout << "* SC4V-TP * " << this->_name << " utilise une attaque speciale et " << attack[rand() % 5] << target << " !\n";
 		this->_energy -= 25;
 	}
 	else
@@ -103,11 +103,11 @@ void	ScavTrap::challengeNewcomer(std::string const & target)
 		"echecs ", "concours de celui qui aura le plus de TIG ", 
 		"pierre, papier, ciseau "
 	};
-	std::cout << "* SC4V-TP * " << this->_name << " decide de defier Norminet au " << challenge[std::rand() % 5] << "!\n";
+	std::cout << "* SC4V-TP * " << this->_name << " decide de defier Norminet au " << challenge[rand() % 5] << "!\n";
 	std::string winner[] = {
 		target, this->_name
 	};
-	std::cout << "* SC4V-TP * " << winner[std::rand() % 2] << " remporte ce defi !!!\n";
+	std::cout << "* SC4V-TP * " << winner[rand() % 2] << " remporte ce defi !!!\n";
 	
 	return ;
 }
