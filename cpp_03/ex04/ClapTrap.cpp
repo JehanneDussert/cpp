@@ -1,8 +1,8 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void)
+ClapTrap::ClapTrap(void) : _name("Ninja")
 {
-	std::cout << "** CL4P-TP ** constructor called !\n";
+	std::cout << "** CL4P-TP ** default constructor called !\n";
 
 	return ;
 }
@@ -18,6 +18,8 @@ ClapTrap::ClapTrap(std::string name) : _hit(100), _max_hit(100),
 _energy(100), _max_energy(100), _level(1), _name(name), _melee(30),
 _ranged(20), _armor(5)
 {
+	std::cout << "** CL4P-TP ** constructor called !\n";
+
 	return ;
 }
 

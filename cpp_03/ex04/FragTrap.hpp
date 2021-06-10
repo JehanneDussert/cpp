@@ -6,7 +6,7 @@
 
 # include "ClapTrap.hpp"
 
-class	FragTrap : public ClapTrap
+class	FragTrap : virtual public ClapTrap
 {
 	private:
 	public:
@@ -15,6 +15,10 @@ class	FragTrap : public ClapTrap
 		FragTrap(std::string name);
 		~FragTrap(void);
 		FragTrap &operator=(FragTrap const &rhs);
+		void	rangedAttack(std::string const & target);
+		void	meleeAttack(std::string const & target);
+		void	takeDamage(unsigned int amount);
+		void	beRepaired(unsigned int amount);
 		void	vaulthunter_dot_exe(std::string const & target);
 };
 

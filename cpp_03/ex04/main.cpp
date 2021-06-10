@@ -1,20 +1,21 @@
-#include "FragTrap.hpp"
 #include "ScavTrap.hpp"
-#include "ClapTrap.hpp"
-#include "NinjaTrap.hpp"
+#include "SuperTrap.hpp"
 
 int main(void)
 {
-    ScavTrap	t1("Alex");
-	ClapTrap	t2("Val");
-	FragTrap	t3("Red1");
-	NinjaTrap	t4("Lulu");
-	NinjaTrap	t5("Lala");
+	SuperTrap	t("Zizou");
+	NinjaTrap	target1("Bobo");
+	FragTrap	target2("Titi");
+	ClapTrap	target3("Roméo");
+	ScavTrap	target4("Victime");
 
-	t4.ninjaShoebox(t1);
-	t4.ninjaShoebox(t2);
-	t4.ninjaShoebox(t3);
-	t4.ninjaShoebox(t5);
 
+	t.rangedAttack("Lili");
+	t.meleeAttack("Léo");
+	t.vaulthunter_dot_exe("Soso");
+	t.ninjaShoebox(target1);
+	t.ninjaShoebox(target2);
+	t.ninjaShoebox(target3);
+	t.ninjaShoebox(target4);
     return 0;
 }

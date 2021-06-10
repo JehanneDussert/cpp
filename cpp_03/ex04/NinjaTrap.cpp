@@ -1,7 +1,13 @@
 #include "NinjaTrap.hpp"
 
-NinjaTrap::NinjaTrap(void)
+NinjaTrap::NinjaTrap(void) : ClapTrap::ClapTrap()
 {
+	this->_energy = 120;
+	this->_max_energy = 120;
+	this->_melee = 60;
+
+	std::cout << "** NINJ4-TP ** default constructor called !\n";
+
 	return ;
 }
 
@@ -12,8 +18,13 @@ NinjaTrap::NinjaTrap(NinjaTrap const &src)
 	return ;
 }
 
-NinjaTrap::NinjaTrap(std::string name) : ClapTrap(60, 60, 120, 120, 1, name, 60, 5, 0)
+NinjaTrap::NinjaTrap(std::string name) : ClapTrap(name)
 {
+	this->_energy = 120;
+	this->_max_energy = 120;
+	this->_melee = 60;
+	this->_name = name;
+
 	std::cout << "** NINJ4-TP ** constructor called !\n";
 
 	return ;
@@ -35,22 +46,16 @@ NinjaTrap	&NinjaTrap::operator=(NinjaTrap const &rhs)
 
 void	NinjaTrap::rangedAttack(std::string const & target)
 {
-	NinjaTrap	t;
-
-	t._name = target;
-	std::cout << "* NINJ4-TP * " << this->_name << " attaque " << target << " a distance, causant " << this->_ranged << " points de degats :(\n";
-	t.takeDamage(this->_ranged);
+	std::cout << "* NINJ4-TP * " << this->_name << " se fait attaquer par " << target << " a distance, causant " << this->_ranged << " points de degats :(\n";
+	this->takeDamage(this->_ranged);
 
 	return ;
 }
 
 void	NinjaTrap::meleeAttack(std::string const & target)
 {
-	NinjaTrap	t;
-
-	t._name = target;
-	std::cout << "* NINJ4-TP * " << this->_name << " attaque " << target << " en groupe, causant " << this->_melee << " points de degats :(\n";
-	t.takeDamage(this->_melee);
+	std::cout << "* NINJ4-TP * " << this->_name << " se fait attaquer par " << target << " en groupe, causant " << this->_melee << " points de degats :(\n";
+	this->takeDamage(this->_melee);
 
 	return ;
 }
@@ -86,28 +91,44 @@ void	NinjaTrap::beRepaired(unsigned int amount)
 
 void	NinjaTrap::ninjaShoebox(NinjaTrap const & target)
 {
-	std::cout << "* NINJ4-TP * " << this->_name << " attaque " << target._name << " avec un caillou\n";
+	int amount = 10;
+
+	std::cout << "* NINJ4-TP * " << this->_name << " attaque " << target._name << " avec un caillou et lui fait perdre " << amount << " points de vie ! :(\n";
+	if (target._hit <= 0)
+		std::cout << "** ECHEC DU NIVEAU " << target._level << " **\n";
 
 	return ;
 }
 
 void	NinjaTrap::ninjaShoebox(ClapTrap const & target)
 {
-	std::cout << "* NINJ4-TP * " << this->_name << " attaque " << target._name << " avec un baton\n";
+	int amount = 5;
+
+	std::cout << "* NINJ4-TP * " << this->_name << " attaque " << target._name << " avec un baton et lui fait perdre " << amount << " points de vie ! :(\n";
+	if (target._hit <= 0)
+		std::cout << "** ECHEC DU NIVEAU " << target._level << " **\n";
 
 	return ;
 }
 
 void	NinjaTrap::ninjaShoebox(ScavTrap const & target)
 {
-	std::cout << "* NINJ4-TP * " << this->_name << " attaque " << target._name << " avec un piscineux\n";
+	int amount = 50;
+
+	std::cout << "* NINJ4-TP * " << this->_name << " attaque " << target._name << " avec un piscineux et lui fait perdre " << amount << " points de vie ! :(\n";
+	if (target._hit <= 0)
+		std::cout << "** ECHEC DU NIVEAU " << target._level << " **\n";
 
 	return ;
 }
 
 void	NinjaTrap::ninjaShoebox(FragTrap const & target)
 {
-	std::cout << "* NINJ4-TP * " << this->_name << " attaque " << target._name << " avec un clavier\n";
+	int amount = 30;
+
+	std::cout << "* NINJ4-TP * " << this->_name << " attaque " << target._name << " avec un clavier et lui fait perdre " << amount << " points de vie ! :(\n";
+	if (target._hit == 0)
+		std::cout << "** ECHEC DU NIVEAU " << target._level << " **\n";
 
 	return ;
 }

@@ -2,7 +2,6 @@
 # define CLAPTRAP_HPP
 
 # include <iostream>
-# include <cmath>
 
 class	ClapTrap
 {
