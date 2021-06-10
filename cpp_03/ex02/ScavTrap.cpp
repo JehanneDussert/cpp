@@ -16,12 +16,6 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(100, 100, 100, 100, 1, name, 30,
 		" sort de nulle part ", " fonce dans le tas "
 	};
 	std::cout << "* SC4V-TP * " << name << apparition[std::rand() % 4] << std::endl;
-	this->rangedAttack("Bob");
-	this->takeDamage(80);
-	this->meleeAttack("Yolanda");
-	this->beRepaired(90);
-	std::cout << "Norminet surgit pour attaquer " << name << std::endl;
-	this->challengeNewcomer("Norminet");
 
 	return ;
 }

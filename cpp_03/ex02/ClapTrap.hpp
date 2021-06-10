@@ -16,12 +16,12 @@ class	ClapTrap
 		unsigned int	_melee;
 		unsigned int	_ranged;
 		unsigned int	_armor;
+	private:
+	public:
 		void			rangedAttack(std::string const & target);
 		void			meleeAttack(std::string const & target);
 		void			takeDamage(unsigned int amount);
 		void			beRepaired(unsigned int amount);
-	private:
-	public:
 		ClapTrap(void);
 		ClapTrap(ClapTrap const &src);
 		ClapTrap(int hit, int max_hit, int energy, int max_energy, int level, std::string name, int melee, int ranged, int armor);
