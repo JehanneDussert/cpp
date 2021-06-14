@@ -1,6 +1,6 @@
 NAME = Polymorphism
 
-SRCS = main.cpp Sorcerer.cpp Victim.cpp Peon.cpp
+SRCS = main.cpp Sorcerer.cpp Victim.cpp Peon.cpp Ghost.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
