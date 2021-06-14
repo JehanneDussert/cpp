@@ -3,20 +3,22 @@
 
 # include <iostream>
 
+# include "Sorcerer.hpp"
+
 class	Victim
 {
 	private:
-		std::string	_name;
-	public:
 		Victim(void);
+	public:
 		Victim(Victim const &src);
 		Victim(std::string name);
-		~Victim(void);
+		virtual ~Victim(void);
 		Victim &operator=(Victim const &rhs);
-		void	introduce(void);
-		void	getPolymorphed(void) const;
+		virtual void	introduce(void) const;
+		virtual void	getPolymorphed(void) const;
+		std::string	name;
 };
 
-//std::ostream    &operator<<(std::ostream &o, Victim const &rhs);
+std::ostream    &operator<<(std::ostream &o, Victim const &rhs);
 
 #endif

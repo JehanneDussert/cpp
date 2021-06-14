@@ -12,16 +12,16 @@ Victim::Victim(Victim const &src)
 	return ;
 }
 
-Victim::Victim(std::string name) : _name(name)
+Victim::Victim(std::string name) : name(name)
 {
-	std::cout << "Some random victim called " << this->_name << " just appeared!\n";
+	std::cout << "Some random victim called " << this->name << " just appeared!\n";
 
 	return ;
 }
 
 Victim::~Victim(void)
 {
-	std::cout << "Victim " << this->_name << " just died for no apprent reason!\n";
+	std::cout << "Victim " << this->name << " just died for no apprent reason!\n";
 
 	return ;
 }
@@ -33,9 +33,9 @@ Victim	&Victim::operator=(Victim const &rhs)
 	return *this;
 }
 
-void	Victim::introduce(void)
+void	Victim::introduce(void) const
 {
-	std::cout << "I'm " << this->_name << " and I like otters!\n";
+	std::cout << "I'm " << this->name << " and I like otters!\n";
 
 	return ;
 }
@@ -43,12 +43,14 @@ void	Victim::introduce(void)
 // polymorphed by the Sorcerer ?
 void	Victim::getPolymorphed(void) const
 {
-	std::cout << this->_name << " has been turned into a cute little sheep!\n";
+	std::cout << this->name << " has been turned into a cute little sheep!\n";
 
 	return ;
 }
 
-/*std::ostream    &operator<<(std::ostream &o, Victim const &rhs)
+std::ostream    &operator<<(std::ostream &o, Victim const &rhs)
 {
+	o << "I'm " << rhs.name << " and I like otters!\n";
+
 	return o;
-}*/
+}

@@ -1,18 +1,13 @@
 #include "Peon.hpp"
 
-Peon::Peon(void)
-{
-	return ;
-}
-
-Peon::Peon(Peon const &src)
+Peon::Peon(Peon const &src) : Victim(src)
 {
 	*this = src;
 
 	return ;
 }
 
-Peon::Peon(std::string name) : _name(name)
+Peon::Peon(std::string name) : Victim::Victim(name)
 {
 	std::cout << "Zog zog.\n";
 
@@ -21,7 +16,7 @@ Peon::Peon(std::string name) : _name(name)
 
 void	Peon::getPolymorphed(void) const
 {
-	std::cout << this->_name << " has been turned into a pink pony!\n";
+	std::cout << this->name << " has been turned into a pink pony!\n";
 
 	return ;
 }
@@ -39,8 +34,3 @@ Peon	&Peon::operator=(Peon const &rhs)
 
 	return *this;
 }
-
-/*std::ostream    &operator<<(std::ostream &o, Peon const &rhs)
-{
-	return o;
-}*/

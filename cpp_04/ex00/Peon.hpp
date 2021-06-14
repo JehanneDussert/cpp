@@ -3,17 +3,19 @@
 
 # include <iostream>
 
-class	Peon
+# include "Victim.hpp"
+# include "Sorcerer.hpp"
+
+class	Peon : public Victim
 {
 	private:
-		std::string	_name;
 	public:
 		Peon(void);
 		Peon(Peon const &src);
 		Peon(std::string name);
-		~Peon(void);
+		virtual ~Peon(void);
 		Peon &operator=(Peon const &rhs);
-		void	getPolymorphed(void) const;
+		virtual void	getPolymorphed(void) const;
 };
 
 //std::ostream    &operator<<(std::ostream &o, Peon const &rhs);
