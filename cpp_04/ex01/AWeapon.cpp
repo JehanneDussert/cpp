@@ -39,6 +39,11 @@ int AWeapon::getDamage() const
 	return this->damage;
 }
 
+std::string AWeapon::getName() const
+{
+	return this->name;
+}
+
 /*std::ostream    &operator<<(std::ostream &o, AWeapon const &rhs)
 {
 	return o;

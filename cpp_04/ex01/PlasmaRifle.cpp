@@ -1,6 +1,6 @@
 #include "PlasmaRifle.hpp"
 
-PlasmaRifle::PlasmaRifle(void) : AWeapon::AWeapon("Plasma Rifle", 21, 5)
+PlasmaRifle::PlasmaRifle(void) : AWeapon::AWeapon("Plasma Rifle", 5, 21)
 {
 	return ;
 }

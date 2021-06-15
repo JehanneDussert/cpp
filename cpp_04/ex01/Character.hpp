@@ -22,6 +22,7 @@ class	Character
 		void equip(AWeapon*);
 		void attack(Enemy*);
 		std::string getName() const;
+		std::string getWeapon() const;
 		Character &operator=(Character const &rhs);
 };
 

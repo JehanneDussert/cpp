@@ -7,7 +7,7 @@ Character::Character(Character const &src)
 	return ;
 }
 
-Character::Character(std::string const & name) :_name(name), ap(40) 
+Character::Character(std::string const & name) :_name(name), w(NULL), ap(40)
 {
 	return ;
 }
@@ -40,11 +40,11 @@ int	Character::getAPCost()
 void Character::attack(Enemy* e)
 {
 	if (this->getAPCost() > this->ap) 
-		std::cout << "Not enough Action points to attack.\n";
+		std::cout << "Not enough AP to attack.\n";
 	else if (this->w)
 	{
 		this->ap -= this->getAPCost();
-		std::cout << this->_name << " attacks " << e->type << " with a " << this->w << std::endl;
+		std::cout << this->_name << " attacks " << e->type << " with a " << this->getWeapon() << std::endl;
 		this->w->attack();
 		e->takeDamage(this->w->getDamage());
 		if (e->hp <= 0)
@@ -65,11 +65,16 @@ void Character::equip(AWeapon* w)
 	return ;
 }
 
+std::string	Character::getWeapon() const
+{
+	return this->w->getName();
+}
+
 std::ostream    &operator<<(std::ostream &o, Character const &rhs)
 {
 	if (rhs.w)
-		o << rhs.getName() << " has " << rhs.ap << " and wiels a " << rhs.w << std::endl;
+		o << rhs.getName() << " has " << rhs.ap << " AP and wields a " << rhs.getWeapon() << std::endl;
 	else
-		o << rhs.getName() << " has " << rhs.ap << " and is unarmed\n";
+		o << rhs.getName() << " has " << rhs.ap << " AP and is unarmed\n";
 	return o;
 }
