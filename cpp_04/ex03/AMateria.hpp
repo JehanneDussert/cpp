@@ -11,8 +11,8 @@ class AMateria
 	protected:
 		//[...]
 		AMateria(void);
-		unsigned int _xp;
-		std::string _type;
+		unsigned int	_xp;
+		std::string		_type;
 	public:
 		AMateria(std::string const & type);
 		//[...]
