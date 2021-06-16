@@ -6,7 +6,7 @@
 /*   By: jdussert <jdussert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 11:20:18 by jdussert          #+#    #+#             */
-/*   Updated: 2021/06/16 11:20:25 by jdussert         ###   ########.fr       */
+/*   Updated: 2021/06/16 11:38:36 by jdussert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,17 @@ Squad::~Squad(void)
 
 Squad	&Squad::operator=(Squad const &rhs)
 {
-	(void)rhs;
-
+	if (this->_s)
+	{
+		for (int i = 0; i < this->_nb; i++)
+			delete this->_s[i];
+		delete [] this->_s;
+		this->_nb = 0;
+		this->_s = NULL;
+	}
+	for (int i = 0; i < rhs.getCount(); i++)
+		this->push(rhs.getUnit(i)->clone());
+	
 	return *this;
 }
 

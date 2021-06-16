@@ -6,7 +6,7 @@
 /*   By: jdussert <jdussert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 11:21:51 by jdussert          #+#    #+#             */
-/*   Updated: 2021/06/16 11:27:12 by jdussert         ###   ########.fr       */
+/*   Updated: 2021/06/16 11:41:20 by jdussert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,14 @@ int main(void)
     for (int i = 0; i < vlc->getCount(); ++i)
     {
         ISpaceMarine* cur = vlc->getUnit(i);
-        std::cout << i << " | " << vlc->getUnit(i) << std::endl;
+        //std::cout << i << " | " << vlc->getUnit(i) << std::endl;
         cur->battleCry();
         cur->rangedAttack();
         cur->meleeAttack();
     }
+    ISquad* sq = new Squad;
+    sq = vlc;
+    
     delete vlc;
 
     return 0;
