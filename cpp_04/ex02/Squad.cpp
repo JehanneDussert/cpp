@@ -1,13 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Squad.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jdussert <jdussert@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/16 11:20:18 by jdussert          #+#    #+#             */
+/*   Updated: 2021/06/16 11:20:25 by jdussert         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Squad.hpp"
 
-// In the end, the Squad we’re asking you to create is a simple container of Space
-// Marines, which we’ll use to correctly structure your army.
-// Upon copy construction or assignation of a Squad , the copy must be deep. Upon
-// assignation, if there was any unit in the Squad before, they must be destroyed before
-// being replaced. You can assume every unit will be created with new .
-// When a Squad is destroyed, the units inside are destroyed also, in order.
-
-Squad::Squad(void) :_s(NULL), _nb(0)
+Squad::Squad(void) : _s(NULL), _nb(0)
 {
 	return ;
 }
@@ -56,19 +61,17 @@ int	Squad::check_unit(ISpaceMarine* new_s)
 }
 
 
-// segf
 int Squad::push(ISpaceMarine* new_s)
 {
 	ISpaceMarine	**tmp;
 
 	if (!new_s || !check_unit(new_s))
 		return this->_nb;
-	tmp = new ISpaceMarine*[++this->_nb];
-	for (int i = 0; i < this->_nb - 1; i++)
+	tmp = new ISpaceMarine*[this->_nb + 1];
+	for (int i = 0; i < this->_nb; i++)
 		tmp[i] = this->_s[i];
-	std::cout << this->_nb << std::endl;
-	this->_s[this->_nb] = new_s;
-	std::cout << "ok\n";
+	tmp[this->_nb] = new_s;
+	this->_nb++;
 	delete [] this->_s;
 	this->_s = tmp;
 

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AssaultTerminator.cpp                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jdussert <jdussert@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/16 11:22:21 by jdussert          #+#    #+#             */
+/*   Updated: 2021/06/16 11:22:22 by jdussert         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "AssaultTerminator.hpp"
 
 AssaultTerminator::AssaultTerminator(void)
