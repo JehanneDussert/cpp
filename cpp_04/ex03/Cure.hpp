@@ -17,6 +17,4 @@ class	Cure : public AMateria
 		virtual void use(ICharacter& target);
 };
 
-//std::ostream    &operator<<(std::ostream &o, Cure const &rhs);
-
 #endif

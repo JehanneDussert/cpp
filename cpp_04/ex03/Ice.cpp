@@ -5,7 +5,7 @@ Ice::Ice(void) : AMateria("ice")
 	return ;
 }
 
-Ice::Ice(Ice const &src)
+Ice::Ice(Ice const &src) : AMateria(src)
 {
 	*this = src;
 
@@ -33,10 +33,5 @@ AMateria* Ice::clone() const
 void Ice::use(ICharacter& target)
 {
 	std::cout << "* shoots an ice bolt at " << target.getName() << " *\n";
-	_xp += 10;
+	AMateria::use(target);
 }
-
-/*std::ostream    &operator<<(std::ostream &o, Ice const &rhs)
-{
-	return o;
-}*/

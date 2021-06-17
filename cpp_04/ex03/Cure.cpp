@@ -5,7 +5,7 @@ Cure::Cure(void) : AMateria("cure")
 	return ;
 }
 
-Cure::Cure(Cure const &src)
+Cure::Cure(Cure const &src) : AMateria(src)
 {
 	*this = src;
 
@@ -33,10 +33,5 @@ AMateria* Cure::clone() const
 void Cure::use(ICharacter& target)
 {
 	std::cout << "* heals  " << target.getName() << " wounds *\n";
-	_xp += 10;
+	AMateria::use(target);
 }
-
-/*std::ostream    &operator<<(std::ostream &o, Cure const &rhs)
-{
-	return o;
-}*/

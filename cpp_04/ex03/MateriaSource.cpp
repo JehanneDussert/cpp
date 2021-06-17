@@ -11,6 +11,7 @@ MateriaSource::MateriaSource(void) : _src(new AMateria*[4]), _n(0)
 
 MateriaSource::MateriaSource(MateriaSource const &src)
 {
+	//?
 	*this = src;
 
 	return ;
@@ -18,11 +19,13 @@ MateriaSource::MateriaSource(MateriaSource const &src)
 
 MateriaSource::~MateriaSource(void)
 {
+	// ?
 	return ;
 }
 
 MateriaSource	&MateriaSource::operator=(MateriaSource const &rhs)
 {
+	// ?
 	this->_n = rhs._n;
 	this->_src = rhs._src;
 
@@ -43,9 +46,3 @@ AMateria*  MateriaSource::createMateria(std::string const & type)
 			return _src[i]->clone();
 	return 0;
 }
-
-
-/*std::ostream    &operator<<(std::ostream &o, MateriaSource const &rhs)
-{
-	return o;
-}*/

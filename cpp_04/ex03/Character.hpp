@@ -4,13 +4,12 @@
 # include <iostream>
 
 # include "AMateria.hpp"
-# include "MateriaSource.hpp"
 # include "ICharacter.hpp"
 
 class	Character : public ICharacter
 {
 	private:
-		int	_nb;
+		int				_nb;
 		AMateria		**_materia;
 		std::string		_name;
 		Character(void);
@@ -20,9 +19,11 @@ class	Character : public ICharacter
 		~Character(void);
 		Character &operator=(Character const &rhs);
 		virtual std::string const & getName() const;
+		int	getCount() const;
 		virtual void equip(AMateria* m);
 		virtual void unequip(int idx);
 		virtual void use(int idx, ICharacter& target);
+		// AMateria* getAMateria() const; ?
 };
 
 //std::ostream    &operator<<(std::ostream &o, Character const &rhs);

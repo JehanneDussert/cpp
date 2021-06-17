@@ -34,6 +34,7 @@ Character::~Character(void)
 
 Character	&Character::operator=(Character const &rhs)
 {
+	// ?
 	if (this == &rhs)
 		return *this;
 	return *this;
@@ -59,6 +60,11 @@ void Character::equip(AMateria* m)
 	}
 }
 
+int Character::getCount() const
+{
+	return _nb;
+}
+
 void Character::unequip(int idx)
 {
 	if (!_materia[idx])
@@ -73,7 +79,6 @@ void Character::use(int idx, ICharacter& target)
 		return ;
 	_materia[idx]->use(target);
 }
-
 
 /*std::ostream    &operator<<(std::ostream &o, Character const &rhs)
 {

@@ -24,7 +24,8 @@ AMateria::~AMateria(void)
 
 AMateria	&AMateria::operator=(AMateria const &rhs)
 {
-	(void)rhs;
+	this->_type = rhs._type;
+	this->_xp = rhs._xp;
 
 	return *this;
 }
@@ -34,10 +35,20 @@ std::string const & AMateria::getType() const
 	return _type;
 }
 
+void	AMateria::setType(std::string const type)
+{
+	_type = type;
+}
+
 unsigned int AMateria::getXP() const
 {
 	return _xp;
-} //Returns the Materia's XP
+}
+
+void	AMateria::setXP(unsigned int const xp)
+{
+	_xp = xp;
+}
 
 void AMateria::use(ICharacter& target)
 {
@@ -46,8 +57,3 @@ void AMateria::use(ICharacter& target)
 
 	return ;
 }
-
-/*std::ostream    &operator<<(std::ostream &o, AMateria const &rhs)
-{
-	return o;
-}*/

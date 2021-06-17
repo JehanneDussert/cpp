@@ -12,13 +12,13 @@ class	MateriaSource : public IMateriaSource
 		unsigned int	_n;
 	public:
 		MateriaSource(void);
+		//MateriaSource( int const n );
+		//getMateria ?
 		MateriaSource(MateriaSource const &src);
 		~MateriaSource(void);
 		MateriaSource &operator=(MateriaSource const &rhs);
 		virtual void learnMateria(AMateria*);
 		virtual AMateria* createMateria(std::string const & type);
 };
-
-//std::ostream    &operator<<(std::ostream &o, MateriaSource const &rhs);
 
 #endif
