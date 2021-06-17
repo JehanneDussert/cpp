@@ -19,12 +19,15 @@ Cure::~Cure(void)
 
 Cure	&Cure::operator=(Cure const &rhs)
 {
+	this->_type = rhs._type;
+	this->_xp = rhs._xp;
+
 	return *this;
 }
 
 AMateria* Cure::clone() const
 {
-	
+	return new Cure(*this);
 }
 
 void Cure::use(ICharacter& target)

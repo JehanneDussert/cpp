@@ -1,9 +1,6 @@
 #include "Character.hpp"
 
-// The Character possesses an inventory of 4 Materia at most, empty at start. He’ll
-// equip the Materia in slots 0 to 3, in this order.
-
-Character::Character(void)
+Character::Character(void) : _nb(0), _materia(new AMateria*[4])
 {
 	for (int i = 0; i < 4; i++)
 		_materia[i] = NULL;
@@ -18,8 +15,20 @@ Character::Character(Character const &src)
 	return ;
 }
 
+Character::Character(std::string name) : _nb(0), _materia(new AMateria*[4]), _name(name)
+{
+	for (int i = 0; i < 4; i++)
+		_materia[i] = NULL;
+	
+	return ;
+}
+
 Character::~Character(void)
 {
+	for (int i = 0; i < _nb; i++)
+		delete _materia[i];
+	delete [] _materia;
+
 	return ;
 }
 
@@ -32,30 +41,37 @@ Character	&Character::operator=(Character const &rhs)
 
 std::string const & Character::getName() const
 {
-
+	return _name;
 }
-
-// In case we try to equip a Materia in a full inventory, or use/uneqip a nonexistent
-// Materia, don’t do a thing.
 
 void Character::equip(AMateria* m)
 {
-	if (!m)
+	if (!m || _nb == 4)
 		return ;
-
+	for (int i = 0; i < 4; i++)
+	{
+		if (!_materia[_nb])
+		{
+			_materia[_nb] = m;
+			_nb++;
+			break ;
+		}
+	}
 }
 
 void Character::unequip(int idx)
 {
-	//The unequip method must NOT delete Materia!
-	if (!this->_materia[idx])
+	if (!_materia[idx])
 		return ;
-	//this->_materia[idx]->_type = NULL;
+	_materia[idx] = NULL;
+	_nb--;
 }
 
 void Character::use(int idx, ICharacter& target)
 {
-
+	if (!_materia[idx])
+		return ;
+	_materia[idx]->use(target);
 }
 
 

@@ -5,7 +5,9 @@
 
 # include "AMateria.hpp"
 
-class ICharacter : public AMateria
+class AMateria;
+
+class ICharacter
 {
 	public:
 		virtual ~ICharacter() {}

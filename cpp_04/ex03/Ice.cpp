@@ -19,12 +19,15 @@ Ice::~Ice(void)
 
 Ice	&Ice::operator=(Ice const &rhs)
 {
+	this->_type = rhs._type;
+	this->_xp = rhs._xp;
+
 	return *this;
 }
 
 AMateria* Ice::clone() const
 {
-
+	return new Ice(*this);
 }
 
 void Ice::use(ICharacter& target)

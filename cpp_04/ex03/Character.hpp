@@ -7,12 +7,15 @@
 # include "MateriaSource.hpp"
 # include "ICharacter.hpp"
 
-class	Character : public AMateria
+class	Character : public ICharacter
 {
 	private:
-		AMateria	*_materia[4];
-	public:
+		int	_nb;
+		AMateria		**_materia;
+		std::string		_name;
 		Character(void);
+	public:
+		Character(std::string name);
 		Character(Character const &src);
 		~Character(void);
 		Character &operator=(Character const &rhs);

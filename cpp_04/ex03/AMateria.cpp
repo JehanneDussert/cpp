@@ -1,11 +1,11 @@
 #include "AMateria.hpp"
 
-AMateria::AMateria(void) : _xp(0), _type(NULL)
+AMateria::AMateria(void) : _xp(0), _type("")
 {
 	return ;
 }
 
-AMateria::AMateria(std::string const & type) : _xp(0), _type(NULL)
+AMateria::AMateria(std::string const & type) : _xp(0), _type(type)
 {
 	return ;
 }
@@ -24,6 +24,8 @@ AMateria::~AMateria(void)
 
 AMateria	&AMateria::operator=(AMateria const &rhs)
 {
+	(void)rhs;
+
 	return *this;
 }
 
@@ -39,6 +41,7 @@ unsigned int AMateria::getXP() const
 
 void AMateria::use(ICharacter& target)
 {
+	(void)target;
 	_xp += 10;
 
 	return ;
