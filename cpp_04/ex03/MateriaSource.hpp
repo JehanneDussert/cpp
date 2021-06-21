@@ -12,8 +12,8 @@ class	MateriaSource : public IMateriaSource
 		unsigned int	_n;
 	public:
 		MateriaSource(void);
-		//MateriaSource( int const n );
-		//getMateria ?
+		virtual int getCount(void) const;
+		AMateria* getMateria(int idx) const;
 		MateriaSource(MateriaSource const &src);
 		~MateriaSource(void);
 		MateriaSource &operator=(MateriaSource const &rhs);

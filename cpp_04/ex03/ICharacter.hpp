@@ -17,6 +17,4 @@ class ICharacter
 		virtual void use(int idx, ICharacter& target) = 0;
 };
 
-//std::ostream    &operator<<(std::ostream &o, ICharacter const &rhs);
-
 #endif

@@ -19,8 +19,8 @@ Cure::~Cure(void)
 
 Cure	&Cure::operator=(Cure const &rhs)
 {
-	this->_type = rhs._type;
-	this->_xp = rhs._xp;
+	this->_type = rhs.getType();
+	this->_xp = rhs.getXP();
 
 	return *this;
 }
@@ -34,4 +34,6 @@ void Cure::use(ICharacter& target)
 {
 	std::cout << "* heals  " << target.getName() << " wounds *\n";
 	AMateria::use(target);
+
+	return ;
 }

@@ -32,11 +32,27 @@ Character::~Character(void)
 	return ;
 }
 
+AMateria	*Character::getMateria(int const idx) const
+{
+	return (_materia[idx]);
+}
+
 Character	&Character::operator=(Character const &rhs)
 {
-	// ?
-	if (this == &rhs)
-		return *this;
+	std::cout << "enter\n";
+	_name = rhs.getName();
+	_nb = rhs.getCount();
+	for (int i = 0; i < 4; i++)
+	{
+		if (_materia[i])
+		{
+			delete _materia[i];
+			_materia[i] = NULL;
+		}
+		std::cout << "enter\n";
+		_materia[i] = rhs.getMateria(i)->clone();
+	}
+
 	return *this;
 }
 
@@ -79,8 +95,3 @@ void Character::use(int idx, ICharacter& target)
 		return ;
 	_materia[idx]->use(target);
 }
-
-/*std::ostream    &operator<<(std::ostream &o, Character const &rhs)
-{
-	return o;
-}*/

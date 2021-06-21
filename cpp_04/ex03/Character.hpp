@@ -23,9 +23,7 @@ class	Character : public ICharacter
 		virtual void equip(AMateria* m);
 		virtual void unequip(int idx);
 		virtual void use(int idx, ICharacter& target);
-		// AMateria* getAMateria() const; ?
+		AMateria	*getMateria(int const idx) const;
 };
-
-//std::ostream    &operator<<(std::ostream &o, Character const &rhs);
 
 #endif

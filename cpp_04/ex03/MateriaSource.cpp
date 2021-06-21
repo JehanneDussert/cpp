@@ -1,33 +1,53 @@
 #include "MateriaSource.hpp"
 
-// In a nutshell, your Source must be able to learn "templates" of Materia, and re-create
-// them on demand. You’ll then be able to create a Materia without knowing it "real" type,
-// just a string identifying it.
-
 MateriaSource::MateriaSource(void) : _src(new AMateria*[4]), _n(0)
 {
+	for (int i = 0; i < 4; i++)
+		_src[i] = NULL;
+
 	return ;
 }
 
 MateriaSource::MateriaSource(MateriaSource const &src)
 {
-	//?
-	*this = src;
+	for (int i = 0; i < 4; i++)
+		_src[i] = src.getMateria(i);
 
 	return ;
+}
+
+AMateria* MateriaSource::getMateria(int const idx) const
+{
+	return _src[idx];
 }
 
 MateriaSource::~MateriaSource(void)
 {
-	// ?
+	for (int i = 0; i < 4; i++)
+		delete _src[i];
+	delete [] _src;
+
 	return ;
+}
+
+int	MateriaSource::getCount() const
+{
+	return _n;
 }
 
 MateriaSource	&MateriaSource::operator=(MateriaSource const &rhs)
 {
-	// ?
-	this->_n = rhs._n;
-	this->_src = rhs._src;
+	_n = rhs.getCount();
+
+	for (int i = 0; i < 4; i++)
+	{
+		if (_src[i])
+		{
+			delete _src[i];
+			_src[i] = NULL;
+		}
+		_src[i] = rhs.getMateria(i)->clone();
+	}
 
 	return *this;
 }

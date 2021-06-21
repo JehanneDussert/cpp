@@ -19,8 +19,8 @@ Ice::~Ice(void)
 
 Ice	&Ice::operator=(Ice const &rhs)
 {
-	this->_type = rhs._type;
-	this->_xp = rhs._xp;
+	this->_type = rhs.getType();
+	this->_xp = rhs.getXP();
 
 	return *this;
 }
@@ -34,4 +34,6 @@ void Ice::use(ICharacter& target)
 {
 	std::cout << "* shoots an ice bolt at " << target.getName() << " *\n";
 	AMateria::use(target);
+
+	return ;
 }

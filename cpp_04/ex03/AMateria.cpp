@@ -24,8 +24,8 @@ AMateria::~AMateria(void)
 
 AMateria	&AMateria::operator=(AMateria const &rhs)
 {
-	this->_type = rhs._type;
-	this->_xp = rhs._xp;
+	this->_type = rhs.getType();
+	this->_xp = rhs.getXP();
 
 	return *this;
 }
