@@ -26,7 +26,7 @@ Character	&Character::operator=(Character const &rhs)
 {
 	this->_name = rhs.getName();
 	this->_w = rhs.getWeapon();
-	this->_ap = rhs.getWeapon()->getAPCost();
+	this->_ap = rhs.getAp();
 
 	return *this;
 }
