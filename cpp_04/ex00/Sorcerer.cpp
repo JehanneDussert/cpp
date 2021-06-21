@@ -41,7 +41,8 @@ void	Sorcerer::polymorph(Victim const &v) const
 
 Sorcerer	&Sorcerer::operator=(Sorcerer const &rhs)
 {
-	(void)rhs;
+	this->name = rhs.name;
+	this->title = rhs.title;
 
 	return *this;
 }

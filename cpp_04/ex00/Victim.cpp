@@ -28,7 +28,7 @@ Victim::~Victim(void)
 
 Victim	&Victim::operator=(Victim const &rhs)
 {
-	(void)rhs;
+	this->name = rhs.name;
 
 	return *this;
 }
@@ -40,7 +40,6 @@ void	Victim::introduce(void) const
 	return ;
 }
 
-// polymorphed by the Sorcerer ?
 void	Victim::getPolymorphed(void) const
 {
 	std::cout << this->name << " has been turned into a cute little sheep!\n";

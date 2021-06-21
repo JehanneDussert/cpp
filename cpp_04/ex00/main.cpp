@@ -14,5 +14,30 @@ int main(void)
     robert.polymorph(joe);
     robert.polymorph(bob);
 
+    std::cout << std::endl;
+    Ghost lili("Lili");
+    lili.introduce();
+    lili = bob;
+    lili.introduce();
+
+    std::cout << std::endl;
+    Victim victor("Victor");
+    victor.introduce();
+    victor = jim;
+    victor.introduce();
+
+    std::cout << std::endl;
+    Peon titi("Titi");
+    titi.introduce();
+    titi = joe;
+    titi.introduce();
+
+    std::cout << std::endl;
+    Sorcerer voldemort("Voldemort", "the Sorcerer");
+    voldemort.introduce();
+    voldemort = robert;
+    voldemort.introduce();
+
+    std::cout << std::endl;
     return 0;
 }

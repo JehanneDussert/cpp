@@ -30,7 +30,7 @@ Peon::~Peon(void)
 
 Peon	&Peon::operator=(Peon const &rhs)
 {
-	(void)rhs;
+	this->name = rhs.name;
 
 	return *this;
 }

@@ -12,7 +12,6 @@ class	Sorcerer
 	private:
 		Sorcerer(void);
 	public:
-		// The class can’t be instanciated without parameters
 		Sorcerer(Sorcerer const &src);
 		Sorcerer(std::string name, std::string title);
 		~Sorcerer(void);

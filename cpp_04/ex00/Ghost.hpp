@@ -10,7 +10,6 @@ class	Ghost : public Victim
 {
 	private:
 	public:
-		Ghost(void);
 		Ghost(Ghost const &src);
 		Ghost(std::string name);
 		virtual ~Ghost(void);
