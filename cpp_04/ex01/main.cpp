@@ -5,6 +5,8 @@
 #include "PowerFist.hpp"
 #include "RadScorpion.hpp"
 #include "SuperMutant.hpp"
+#include "SuperMechant.hpp"
+#include "SuperWeapon.hpp"
 
 int main(void)
 {
@@ -13,6 +15,8 @@ int main(void)
     Enemy* b = new RadScorpion();
     AWeapon* pr = new PlasmaRifle();
     AWeapon* pf = new PowerFist();
+    Enemy* c = new SuperMechant();
+    AWeapon* wp = new SuperWeapon();
     
     me->equip(pr);
     std::cout << *me;
@@ -25,6 +29,8 @@ int main(void)
     std::cout << *me;
     me->attack(b);
     std::cout << *me;
+    me->equip(wp);
+    me->attack(c);
 
 
     Character* you = new Character("you");
@@ -36,6 +42,7 @@ int main(void)
     delete pr;
     delete pf;
     delete you;
+    delete wp;
 
     return 0;
 }
