@@ -19,7 +19,9 @@ PowerFist::~PowerFist(void)
 
 PowerFist	&PowerFist::operator=(PowerFist const &rhs)
 {
-	(void)rhs;
+	this->_name = rhs.getName();
+	this->_apcost = rhs.getAPCost();
+	this->_damage = rhs.getDamage();
 
 	return *this;
 }

@@ -23,7 +23,8 @@ SuperMutant::~SuperMutant(void)
 
 SuperMutant	&SuperMutant::operator=(SuperMutant const &rhs)
 {
-	(void)rhs;
+	this->_hp = rhs.getHP();
+	this->_type = rhs.getType();
 
 	return *this;
 }

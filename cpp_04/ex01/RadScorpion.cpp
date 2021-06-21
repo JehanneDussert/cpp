@@ -23,7 +23,8 @@ RadScorpion::~RadScorpion(void)
 
 RadScorpion	&RadScorpion::operator=(RadScorpion const &rhs)
 {
-	(void)rhs;
+	this->_hp = rhs.getHP();
+	this->_type = rhs.getType();
 
 	return *this;
 }

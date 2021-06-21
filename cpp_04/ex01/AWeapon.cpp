@@ -1,6 +1,6 @@
 #include "AWeapon.hpp"
 
-AWeapon::AWeapon(void)
+AWeapon::AWeapon(void) : _name(NULL)
 {
 	return ;
 }
@@ -12,7 +12,7 @@ AWeapon::AWeapon(AWeapon const &src)
 	return ;
 }
 
-AWeapon::AWeapon(std::string const & name, int apcost, int damage) : name(name), apcost(apcost), damage(damage)
+AWeapon::AWeapon(std::string const & name, int apcost, int damage) : _name(name), _apcost(apcost), _damage(damage)
 {
 	return ;
 }
@@ -24,24 +24,26 @@ AWeapon::~AWeapon(void)
 
 AWeapon	&AWeapon::operator=(AWeapon const &rhs)
 {
-	(void)rhs;
+	this->_name = rhs.getName();
+	this->_apcost = rhs.getAPCost();
+	this->_damage = rhs.getDamage();
 
 	return *this;
 }
 
 int AWeapon::getAPCost() const
 {
-	return this->apcost;
+	return this->_apcost;
 }
 
 int AWeapon::getDamage() const
 {
-	return this->damage;
+	return this->_damage;
 }
 
 std::string AWeapon::getName() const
 {
-	return this->name;
+	return this->_name;
 }
 
 /*std::ostream    &operator<<(std::ostream &o, AWeapon const &rhs)

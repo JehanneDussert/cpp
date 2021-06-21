@@ -26,5 +26,16 @@ int main(void)
     me->attack(b);
     std::cout << *me;
 
+
+    Character* you = new Character("you");
+    std::cout << *you;
+    *you = *me;
+    std::cout << *you;
+
+    delete me;
+    delete pr;
+    delete pf;
+    delete you;
+
     return 0;
 }

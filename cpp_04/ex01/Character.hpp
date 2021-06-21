@@ -11,18 +11,19 @@ class	Character
 	private:
 		Character(void);
 		std::string _name;
+		AWeapon* _w;
+		int _ap;
 	public:
-		AWeapon* w;
-		int ap;
 		Character(std::string const & name);
-		int getAPCost();
 		Character(Character const &src);
 		~Character();
 		void recoverAP();
 		void equip(AWeapon*);
 		void attack(Enemy*);
 		std::string getName() const;
-		std::string getWeapon() const;
+		AWeapon* getWeapon() const;
+		std::string	getWeaponName() const;
+		int	getAp() const;
 		Character &operator=(Character const &rhs);
 };
 
