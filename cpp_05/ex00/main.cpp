@@ -8,16 +8,16 @@ int main(void)
 
     try
     {
-        std::cout << a.getGrade();
+        std::cout << "A grade : " << a.getGrade();
         std::cout << std::endl;
         a.increment();
-        std::cout << a.getGrade();
+        std::cout << "A grade : " << a.getGrade();
         std::cout << std::endl;
         a.increment();
-        std::cout << a.getGrade();
+        std::cout << "A grade : " << a.getGrade();
         std::cout << std::endl;
         a.increment();
-        std::cout << a.getGrade();
+        std::cout << "A grade : " << a.getGrade();
         std::cout << std::endl;
     }
     catch (std::exception& e)
@@ -28,16 +28,16 @@ int main(void)
 
     try
     {
-        std::cout << b.getGrade();
+        std::cout << "B grade : " << b.getGrade();
         std::cout << std::endl;
         b.decrement();
-        std::cout << b.getGrade();
+        std::cout << "B grade : " << b.getGrade();
         std::cout << std::endl;
         b.decrement();
-        std::cout << b.getGrade();
+        std::cout << "B grade : " << b.getGrade();
         std::cout << std::endl;
         b.decrement();
-        std::cout << b.getGrade();
+        std::cout << "B grade : " << b.getGrade();
         std::cout << std::endl;
     }
     catch (std::exception& e)
@@ -47,18 +47,20 @@ int main(void)
     }
 
     b = c;
+    std::cout << "B become C\n";
+
     try
     {
-        std::cout << b.getGrade();
+        std::cout << "B grade : " << b.getGrade();
         std::cout << std::endl;
         b.increment();
-        std::cout << b.getGrade();
+        std::cout << "B grade : " << b.getGrade();
         std::cout << std::endl;
         b.increment();
-        std::cout << b.getGrade();
+        std::cout << "B grade : " << b.getGrade();
         std::cout << std::endl;
         b.increment();
-        std::cout << b.getGrade();
+        std::cout << "B grade : " << b.getGrade();
         std::cout << std::endl;
     }
     catch (std::exception& e)
