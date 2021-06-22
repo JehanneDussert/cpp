@@ -32,8 +32,7 @@ int main(void)
         cur->meleeAttack();
     }
     std::cout << "\n-- New squad --\n\n";
-    ISquad* s = new Squad;
-    s = vlc;
+    Squad* s = new Squad;
 
     for (int i = 0; i < s->getCount(); ++i)
     {
@@ -45,16 +44,18 @@ int main(void)
 
     std::cout << "\n-- Clone ISpaceMarine --\n\n";
     ISpaceMarine* lolo = jim->clone();
-    vlc->push(lolo);
-    ISquad* sq = new Squad;
+    s->push(lolo);
+    Squad* sq = new Squad;
+    *sq = *s;
     std::cout << "Number of units currently in the squad : " << sq->getCount() << std::endl;
-    std::cout << "Pointer to the 2th unit : " << sq->getUnit(2) << std::endl;
-    sq = vlc;
+    std::cout << "Pointer to the 0th unit : " << sq->getUnit(0) << std::endl;
     std::cout << "Number of units currently in the squad : " << sq->getCount() << std::endl;
-    std::cout << "Pointer to the 2th unit : " << sq->getUnit(2) << std::endl;
+    std::cout << "Pointer to the 0th unit : " << sq->getUnit(0) << std::endl;
     
     std::cout << std::endl;
     delete vlc;
+    delete s;
+    delete sq;
 
     return 0;
 }

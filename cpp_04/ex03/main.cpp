@@ -69,7 +69,7 @@ int main(void)
 
     me->unequip(0);
     me->equip(tmp1);
-    copychar = bob;
+    *copychar = *bob;
 
     std::cout << "Use deleted ice : ";
     me->use(0, *bob);
@@ -91,6 +91,9 @@ int main(void)
     delete bob;
     delete me;
     delete src;
+    delete copychar;
+    delete tmp2;
+    delete tmp;
 
     return 0;
 }
