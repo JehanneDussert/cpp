@@ -49,9 +49,9 @@ bool			Form::getSign(void) const
 	return this->_sign;
 }
 
-void			Form::beSigned(Bureaucrat& b)
+void			Form::beSigned(Bureaucrat const & b)
 {
-	if (b.getGrade() > _gradeSign || b.getGrade() > _gradeExec)
+	if (b.getGrade() > _gradeSign)
 	{
 		throw Form::GradeTooLowException();
 		_sign = false;
@@ -69,6 +69,11 @@ const char* Form::GradeTooLowException::what() const throw()
 	return ("Error. Grade is too low to sign.");
 }
 
+const char* Form::FormNotSignedException::what() const throw()
+{
+	return ("Error. Form has not be signed.");
+}
+
 std::ostream    &operator<<(std::ostream &o, Form const &rhs)
 {
 	if (rhs.getSign() == true)
@@ -78,3 +83,11 @@ std::ostream    &operator<<(std::ostream &o, Form const &rhs)
 	
 	return o;
 }
+
+// void	Form::execute(Bureaucrat const & executor) const
+// {
+// 	if (executor.getGrade() > getGradeExec())
+// 		throw Form::GradeTooLowException();
+// 	else if (_sign == false)
+// 		throw Form::FormNotSignedException();
+// }

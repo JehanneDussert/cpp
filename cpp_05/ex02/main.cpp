@@ -1,22 +1,68 @@
 #include "Bureaucrat.hpp"
+# include "PresidentialPardonForm.hpp"
+# include "RobotomyRequestForm.hpp"
+# include "ShrubberyCreationForm.hpp"
 
 int main(void)
 {
-    Bureaucrat  a("Lala", 2);
-    Bureaucrat  b("Lolo", 4);
-    Bureaucrat  c("Lili", 50);
-    Form        f1("C18", 40, 30);
-    Form        f2("B12", 3, 2);
+    Bureaucrat              a("Lala", 2);
+    Bureaucrat              b("Lolo", 4);
+    Bureaucrat              c("Lili", 149);
+    ShrubberyCreationForm   f1("maison");
+    PresidentialPardonForm  f2("coucou");
+    RobotomyRequestForm     f3("robot");
 
+    // ShrubberyCreationForm test
+    // try
+    // {
+    //     f1.beSigned(a);
+    //     f1.execute(a);
+    // }
+    // catch (std::exception& e)
+    // {
+    //     std::cout << e.what();
+    //     std::cout << std::endl;
+    // }
+
+    // try
+    // {
+    //     f1.beSigned(a);
+    //     f1.execute(c);
+    // }
+    // catch (std::exception& e)
+    // {
+    //     std::cout << e.what();
+    //     std::cout << std::endl;
+    // }
+
+    // PresidentialPardonForm
+    // try
+    // {
+    //     f2.beSigned(a);
+    //     f2.execute(a);
+    // }
+    // catch (std::exception& e)
+    // {
+    //     std::cout << e.what();
+    //     std::cout << std::endl;
+    // }
+
+    // try
+    // {
+    //     f2.beSigned(c);
+    //     f2.execute(c);
+    // }
+    // catch (std::exception& e)
+    // {
+    //     std::cout << e.what();
+    //     std::cout << std::endl;
+    // }
+
+    // RobotomyRequestForm
     try
     {
-        std::cout << "A grade : " << a.getGrade();
-        std::cout << std::endl;
-        a.increment();
-        std::cout << "A grade : " << a.getGrade();
-        std::cout << std::endl;
-        f1.beSigned(a);
-        f2.beSigned(b);
+        f3.beSigned(a);
+        f3.execute(a);
     }
     catch (std::exception& e)
     {
@@ -24,55 +70,16 @@ int main(void)
         std::cout << std::endl;
     }
 
-    try
-    {
-        std::cout << f1 << f2;
-        f2.beSigned(b);
-        std::cout << "B grade : " << b.getGrade();
-        std::cout << std::endl;
-        b.increment();
-        std::cout << "B grade : " << b.getGrade();
-        std::cout << std::endl;
-        b.increment();
-        std::cout << "B grade : " << b.getGrade();
-        std::cout << std::endl;
-        b.increment();
-        std::cout << "B grade : " << b.getGrade();
-        f2.beSigned(b);
-        std::cout << f1 << f2;
-        std::cout << std::endl;
-    }
-    catch (std::exception& e)
-    {
-        std::cout << e.what();
-        std::cout << std::endl;
-    }
-
-    c = a;
-    std::cout << "C become A\n";
-
-    try
-    {
-        b.increment();
-        std::cout << "B grade : " << b.getGrade();
-        std::cout << std::endl;
-        b.increment();
-        std::cout << "B grade : " << b.getGrade();
-        std::cout << std::endl;
-        b.increment();
-        std::cout << "B grade : " << b.getGrade();
-        std::cout << std::endl;
-        f2.beSigned(b);
-        std::cout << f1 << f2;
-        std::cout << std::endl;
-    }
-    catch (std::exception& e)
-    {
-        std::cout << e.what();
-        std::cout << std::endl;
-    }
-
-    std::cout << a << b << c;
+    // try
+    // {
+    //     f3.beSigned(c);
+    //     f3.execute(c);
+    // }
+    // catch (std::exception& e)
+    // {
+    //     std::cout << e.what();
+    //     std::cout << std::endl;
+    // }
 
     return 0;
 }

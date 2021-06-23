@@ -4,6 +4,8 @@
 # include <iostream>
 # include "Bureaucrat.hpp"
 
+// doit etre une classe abstraite
+
 class Bureaucrat;
 
 class	Form
@@ -23,13 +25,19 @@ class	Form
 		unsigned int	getGradeSign(void) const;
 		unsigned int	getGradeExec(void) const;
 		bool			getSign(void) const;
-		void			beSigned(Bureaucrat& b);
+		void			beSigned(Bureaucrat const & b);
+		virtual void	execute(Bureaucrat const & executor) const = 0;
 		class	GradeTooHighException : public std::exception
 		{
 			public:
 				virtual const char* what() const throw();
 		};
 		class	GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+		class	FormNotSignedException : public std::exception
 		{
 			public:
 				virtual const char* what() const throw();
