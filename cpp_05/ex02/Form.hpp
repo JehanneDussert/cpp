@@ -20,7 +20,7 @@ class	Form
 		Form(std::string name, unsigned int gradeSign, unsigned int gradeExec);
 		Form(Form const &src);
 		~Form(void);
-		Form &operator=(Form const &rhs);
+		virtual Form &operator=(Form const &rhs);
 		std::string		getName(void) const;
 		unsigned int	getGradeSign(void) const;
 		unsigned int	getGradeExec(void) const;

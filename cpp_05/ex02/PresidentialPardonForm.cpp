@@ -24,7 +24,7 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
 
 PresidentialPardonForm	&PresidentialPardonForm::operator=(PresidentialPardonForm const &rhs)
 {
-	_target = rhs.getTarget();
+	this->_target = rhs.getTarget();
 
 	return *this;
 }
@@ -46,9 +46,3 @@ void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 
 	return ;
 }
-
-
-/*std::ostream    &operator<<(std::ostream &o, PresidentialPardonForm const &rhs)
-{
-	return o;
-}*/

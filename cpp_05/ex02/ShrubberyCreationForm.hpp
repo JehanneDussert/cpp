@@ -20,8 +20,6 @@ class	ShrubberyCreationForm : public Form
 		ShrubberyCreationForm &operator=(ShrubberyCreationForm const &rhs);
 };
 
-//std::ostream    &operator<<(std::ostream &o, ShrubberyCreationForm const &rhs);
-
 # define TREES \
 "               ,@@@@@@@,					" << std::endl <<		\
 "       ,,,.   ,@@@@@@/@@,  .oo8888o.		" << std::endl <<		\

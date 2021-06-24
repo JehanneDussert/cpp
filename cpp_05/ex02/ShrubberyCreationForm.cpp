@@ -31,14 +31,14 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-	std::string	newF = _target + "_shrubbery";
-	std::ofstream	file(newF.c_str());
 	if (this->getSign() == false)
 		throw Form::FormNotSignedException();
 	else if (this->getGradeExec() < executor.getGrade())
 		throw Form::GradeTooLowException();
 	else
 	{
+		std::string	newF = _target + "_shrubbery";
+		std::ofstream	file(newF.c_str());
 		if (file)
 		{
 			file << TREES;
@@ -55,8 +55,3 @@ std::string	ShrubberyCreationForm::getTarget(void) const
 {
 	return this->_target;
 }
-
-/*std::ostream    &operator<<(std::ostream &o, ShrubberyCreationForm const &rhs)
-{
-	return o;
-}*/

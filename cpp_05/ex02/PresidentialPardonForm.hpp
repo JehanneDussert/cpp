@@ -19,6 +19,4 @@ class	PresidentialPardonForm : public Form
 		PresidentialPardonForm &operator=(PresidentialPardonForm const &rhs);
 };
 
-//std::ostream    &operator<<(std::ostream &o, PresidentialPardonForm const &rhs);
-
 #endif

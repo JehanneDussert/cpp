@@ -25,7 +25,8 @@ Form::~Form(void)
 
 Form	&Form::operator=(Form const &rhs)
 {
-	(void)rhs;
+	this->_sign = rhs.getSign();
+	
 	return *this;
 }
 
@@ -83,11 +84,3 @@ std::ostream    &operator<<(std::ostream &o, Form const &rhs)
 	
 	return o;
 }
-
-// void	Form::execute(Bureaucrat const & executor) const
-// {
-// 	if (executor.getGrade() > getGradeExec())
-// 		throw Form::GradeTooLowException();
-// 	else if (_sign == false)
-// 		throw Form::FormNotSignedException();
-// }
