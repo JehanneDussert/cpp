@@ -13,5 +13,8 @@ int main(void)
     rrf = someRandomIntern.makeForm("robotomy request", "Bender");
     fake = someRandomIntern.makeForm("unknown type", "Bobo");
 
+    delete rrf;
+    delete fake;
+    
     return 0;
 }

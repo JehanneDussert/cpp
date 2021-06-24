@@ -4,8 +4,6 @@
 # include <iostream>
 # include "Bureaucrat.hpp"
 
-// doit etre une classe abstraite
-
 class Bureaucrat;
 
 class	Form
@@ -19,7 +17,7 @@ class	Form
 	public:
 		Form(std::string name, unsigned int gradeSign, unsigned int gradeExec);
 		Form(Form const &src);
-		~Form(void);
+		virtual ~Form(void);
 		virtual Form &operator=(Form const &rhs);
 		std::string		getName(void) const;
 		unsigned int	getGradeSign(void) const;
