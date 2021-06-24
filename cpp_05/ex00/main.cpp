@@ -6,6 +6,31 @@ int main(void)
     Bureaucrat  b("Lolo", 149);
     Bureaucrat  c("Lili", 50);
 
+    std::cout << "Try to create a Bureaucrat with\n";
+    std::cout << "* too low grade *\n";
+    try
+    {
+        Bureaucrat d("Nono", 158);
+    }
+    catch (std::exception& e)
+    {
+        std::cout << e.what();
+        std::cout << std::endl;
+    }
+    
+    std::cout << "* too high grade *\n";
+    try
+    {
+        Bureaucrat d("Nono", 0);
+    }
+    catch (std::exception& e)
+    {
+        std::cout << e.what();
+        std::cout << std::endl;
+    }
+    std::cout <<std::endl;
+
+    std::cout << "Try to increment a Bureaucrat lower than the lowest grade (1)\n";
     try
     {
         std::cout << "A grade : " << a.getGrade();
@@ -26,6 +51,7 @@ int main(void)
         std::cout << std::endl;
     }
 
+    std::cout << "Try to decrement a Bureaucrat lower than the lowest grade (150)\n";
     try
     {
         std::cout << "B grade : " << b.getGrade();
@@ -46,8 +72,10 @@ int main(void)
         std::cout << std::endl;
     }
 
+    std::cout << "\nB before copy (name is const): " << b;
+    std::cout << "C before copy (name is const): " << c;
     b = c;
-    std::cout << "B become C\n";
+    std::cout << "B after copy (name is const): " << b;
 
     try
     {
@@ -69,6 +97,7 @@ int main(void)
         std::cout << std::endl;
     }
 
+    std::cout << "\nBureaucrats :\n";
     std::cout << a << b << c;
 
     return 0;
