@@ -25,6 +25,4 @@ Form	*newRobotomyRequest(std::string target);
 Form	*newPresidentialRequest(std::string target);
 Form	*newShrubberyRequest(std::string target);
 
-//std::ostream    &operator<<(std::ostream &o, Intern const &rhs);
-
 #endif

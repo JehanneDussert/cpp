@@ -69,8 +69,3 @@ Form	*Intern::makeForm(std::string name, std::string target)
 	std::cout << "Error. Unknown type form.\n";
 	return NULL;
 }
-
-/*std::ostream    &operator<<(std::ostream &o, Intern const &rhs)
-{
-	return o;
-}*/
