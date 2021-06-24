@@ -26,8 +26,12 @@ int main(void)
 
     try
     {
-        std::cout << f1 << f2;
+        std::cout << "\nPrint f1 & f2 forms :\n";
+        std::cout << f1 << f2 << std::endl;
+        std::cout << b;
+        std::cout << "b tries to sign f2 :\n";
         f2.beSigned(b);
+        std::cout << "b succeed.\n";
         std::cout << "B grade : " << b.getGrade();
         std::cout << std::endl;
         b.increment();
@@ -48,9 +52,13 @@ int main(void)
         std::cout << std::endl;
     }
 
-    c = a;
-    std::cout << "C become A\n";
+    std::cout << "\nf1 before copy (name + grades are const, only sign changes): " << f1.getSign() << std::endl;
+    std::cout << "f2 before copy (name + grades are const, only sign changes): " << f2.getSign() << std::endl;
+    f1 = f2;
+    std::cout << "f1 become f2\n";
+    std::cout << "f1 after copy (name + grades are const, only sign changes): " << f1.getSign() << std::endl;
 
+    std::cout << std::endl;
     try
     {
         b.increment();

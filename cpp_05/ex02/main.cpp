@@ -14,7 +14,8 @@ int main(void)
     RobotomyRequestForm     f3("robot");
 
 
-    // ShrubberyCreationForm test
+    std::cout << "*ShrubberyCreationForm test*\n";
+    std::cout << std::endl;
     try
     {
         f1.beSigned(a);
@@ -35,8 +36,10 @@ int main(void)
         std::cout << e.what();
         std::cout << std::endl;
     }
+    std::cout << std::endl;
 
-    // PresidentialPardonForm
+    std::cout << "*PresidentialPardonForm*\n";
+    std::cout << std::endl;
     try
     {
         f2.beSigned(a);
@@ -58,8 +61,10 @@ int main(void)
         std::cout << e.what();
         std::cout << std::endl;
     }
+    std::cout << std::endl;
 
-    // RobotomyRequestForm
+    std::cout << "*RobotomyRequestForm*\n";
+    std::cout << std::endl;
     try
     {
         f3.beSigned(a);
@@ -71,16 +76,16 @@ int main(void)
         std::cout << std::endl;
     }
 
-    // try
-    // {
-    //     f3.beSigned(c);
-    //     f3.execute(c);
-    // }
-    // catch (std::exception& e)
-    // {
-    //     std::cout << e.what();
-    //     std::cout << std::endl;
-    // }
+    try
+    {
+        f3.beSigned(c);
+        f3.execute(c);
+    }
+    catch (std::exception& e)
+    {
+        std::cout << e.what();
+        std::cout << std::endl;
+    }
 
     return 0;
 }

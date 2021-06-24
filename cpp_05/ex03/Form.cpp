@@ -55,9 +55,11 @@ void			Form::beSigned(Bureaucrat const & b)
 	if (b.getGrade() > _gradeSign)
 	{
 		throw Form::GradeTooLowException();
+		std::cout << "Form has not been correcty signed.\n";
 		_sign = false;
 	}
 	_sign = true;
+	std::cout << "Form has been correcty signed.\n";
 }
 
 const char* Form::GradeTooHighException::what() const throw()

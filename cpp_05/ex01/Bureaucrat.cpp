@@ -7,6 +7,10 @@ Bureaucrat::Bureaucrat(void)
 
 Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : _name(name), _grade(grade)
 {
+	if (this->_grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	else if (this->_grade < 1)
+		throw Bureaucrat::GradeTooHighException();
 	return ;
 }
 
