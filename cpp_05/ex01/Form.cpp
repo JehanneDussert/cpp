@@ -25,7 +25,8 @@ Form::~Form(void)
 
 Form	&Form::operator=(Form const &rhs)
 {
-	(void)rhs;
+	this->_sign = rhs.getSign();
+	
 	return *this;
 }
 
