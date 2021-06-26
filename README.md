@@ -23,7 +23,7 @@
 sh class.sh name_of_class
 ```
 
-## Reference
+## 🖇 Reference
 - [cplusplus](https://www.cplusplus.com/reference/)
 - [OpenClassroom](https://openclassrooms.com/fr/courses/1894236-programmez-avec-le-langage-c)
 
