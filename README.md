@@ -17,6 +17,11 @@
 
 ## 💡 Usage
 - Each module has its own Makefile and main of tests
+- You can create a new class by running class.sh 
+
+```
+sh class.sh name_of_class
+```
 
 ## Reference
 - [cplusplus](https://www.cplusplus.com/reference/)
