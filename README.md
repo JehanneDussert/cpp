@@ -17,7 +17,7 @@
 
 ## 💡 Usage
 - Each module has its own Makefile and main of tests
-- You can create a new class by running class.sh 
+- You can create a new class by running class.sh. It will create a file.[hpp/cpp] with an orthodox canonical form 👉 i.e. with a default constructor, a copy constructor, a destructor, a copy assignment operator.
 
 ```
 sh class.sh name_of_class
