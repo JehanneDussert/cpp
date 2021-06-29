@@ -4,12 +4,14 @@
 # include <iostream>
 # include <string>
 # include <stdlib.h>
+# include <iomanip>
+# include <cmath>
+# include <limits>
+# include <cfloat>
 
 # define MIN 33
 # define MAX 126
 
-void	convert(double d);
-int		check_type(double d);
-//std::ostream    &operator<<(std::ostream &o, convert const &rhs);
+int		ft_convert(const char *s);
 
 #endif

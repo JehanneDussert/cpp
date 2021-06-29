@@ -1,47 +1,41 @@
 #include "convert.hpp"
 
-// int		ft_is_char(char c)
-// {
-// 	if (c >= MIN && c <= MAX && (c < '0' || c > '9'))
-// 		return 1;
-// 	return 0;
-// }
-
-// void	ft_print_char(double d)
-// {
-// 	std::cout << "char: ";
-// 	for (int i = 0; s[i]; i++)
-// 		if (!(s[i] >= MIN && s[i] <= MAX))
-// 		{
-// 			std::cout << "Non displayable\n";
-// 			return ;
-// 		}
-	
-// }
-
-// void	ft_print_int(double d)
-// {
-// 	std::cout << "int: ";
-// 	for (int i = 0; s[i]; i++)
-// 	{
-// 		if (s[i] == '.' || s[i] == 'f')
-// 			i++;
-// 		else if (ft_is_char(s[i]))
-// 		{
-// 			std::cout << "impossible\n";
-// 			return ;
-// 		}
-// 	}
-// 	std::cout << std::stoi (s, nullptr, 10) << std::endl;
-// }
-
-int		check_type(double d)
+void	ft_print_char(double d)
 {
-	std::cout << d << std::endl;
-	// ft_print_char(d);
-	// ft_print_int(d);
-	// ft_print_float(d);
-	// ft_print_double(d);
+	if (!(d >= CHAR_MIN && d <= CHAR_MAX))
+		std::cout << "chat: impossible\n";
+	else if (!(d >= MIN && d <= MAX))
+		std::cout << "char: Non displayable\n";
+	else
+		std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
+}
+
+void	ft_print_int(double d)
+{
+	if (d <= INT_MAX && d >= INT_MIN)
+		std::cout << "int: " << static_cast<int>(d) << std::endl;
+	else
+		std::cout << "int: impossible\n";
+}
+
+void	ft_print_float(double d)
+{
+	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(d) << "f\n";
+}
+
+void	ft_print_double(double d)
+{
+	std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
+}
+
+int		ft_convert(const char *s)
+{
+	double d = atof(s);
+
+	ft_print_char(d);
+	ft_print_int(d);
+	ft_print_float(d);
+	ft_print_double(d);
 
 	return 0;
 }
