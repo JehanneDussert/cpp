@@ -1,6 +1,6 @@
 NAME = Serialization
 
-SRCS = main.cpp
+SRCS = main.cpp serialize.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
