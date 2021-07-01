@@ -4,9 +4,16 @@
 # include <iostream>
 
 template< typename T>
-T const iter(T const & x, T const & y)
+void print(T const & element)
 {
-	return (x > y ? x : y);
+	std::cout << "My element: " << element << std::endl;
+}
+
+template< typename T>
+void iter(T const *array, int const & len, void (*f)(T const & element))
+{
+	for (int i = 0; i < len; i++)
+		(*f)(array[i]);
 }
 
 #endif
