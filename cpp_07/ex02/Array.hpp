@@ -24,26 +24,28 @@ template< typename T>
 std::ostream    &operator<<(std::ostream &o, Array<T> const &rhs);
 
 template< typename T>
-Array<T>::Array(void) : _arr(), _len(0)
+Array<T>::Array(void) : _arr(NULL), _len(0)
 {
 	return ;
 }
 
 template< typename T>
-Array<T>::Array(unsigned int n) : _arr(new T[n]), _len(n)
+Array<T>::Array(unsigned int n) : _arr(new T[n]()), _len(n)
 {
 	return ;
 }
 
 template< typename T>
-Array<T>::Array(Array const & src) : _arr(src._arr), _len(src._len)
+Array<T>::Array(Array const & src) : _arr(NULL)
 {
+	*this = src;
 	return ;
 }
 
 template< typename T>
 Array<T>::~Array(void)
 {
+	delete [] _arr;
 	return ;
 }
 
@@ -57,6 +59,7 @@ template< typename T>
 Array<T> &Array<T>::operator=(Array const &rhs)
 {
     this->_len = rhs.size();
+	delete [] _arr;
 	_arr = new T[_len];
 	for (unsigned int i = 0; i < _len; i++)
 		_arr[i] = rhs[i];
