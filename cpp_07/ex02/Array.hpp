@@ -44,7 +44,6 @@ Array<T>::Array(Array const & src) : _arr(src._arr), _len(src._len)
 template< typename T>
 Array<T>::~Array(void)
 {
-	delete [] _arr;
 	return ;
 }
 
@@ -67,7 +66,7 @@ Array<T> &Array<T>::operator=(Array const &rhs)
 template< typename T>
 const T &Array<T>::operator[](unsigned int idx) const
 {
-    if (idx > _len)
+    if (idx >= _len)
 		throw std::exception();
 	return _arr[idx];
 }
@@ -75,7 +74,7 @@ const T &Array<T>::operator[](unsigned int idx) const
 template< typename T>
 T &Array<T>::operator[](unsigned int idx)
 {
-    if (idx > _len)
+    if (idx >= _len)
 		throw std::exception();
 	return _arr[idx];
 }
