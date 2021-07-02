@@ -10,9 +10,9 @@
 - cpp_04 : sub-typing polymorphism, abstract classes and interfaces
 - cpp_05 : nested classes, exceptions
 - cpp_06 : upcast and downcast, static cast, dynamic cast, reinterpret cast, const cast, cast operators, explicit keyword
+- cpp_07 : templates, default type, specialization
 
 ## 📈 Modules to be completed ⤵️
-- cpp_07 : templates, default type, specialization
 - cpp_08 : STL
 
 ## 💡 Usage
