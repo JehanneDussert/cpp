@@ -67,7 +67,7 @@ int Span::shortestSpan(void)
 
 	if (_size < 2 || this->getLen() < 2)
 		throw SizeException();
-	std::sort(std::begin(copy), std::end(copy));
+	std::sort(copy.begin(), copy.end());
 	for (unsigned int i = 0; i < this->getLen() - 1; i++)
 		if (copy[i + 1] - copy[i] < ret)
 			ret = copy[i + 1] - copy[i];
@@ -80,6 +80,6 @@ int Span::longestSpan(void)
 
 	if (_size < 2 || this->getLen() < 2)
 		throw SizeException();
-	std::sort(std::begin(copy), std::end(copy));
+	std::sort(copy.begin(), copy.end());
 	return copy[getLen() - 1] - copy[0];
 }
