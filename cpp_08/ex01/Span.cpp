@@ -62,23 +62,24 @@ unsigned int Span::getLen(void)
 
 int Span::shortestSpan(void)
 {
-	int ret = INT_MAX;
-	std::sort(std::begin(this->_tab), std::end(this->_tab));
+	std::vector<int>	copy = _tab;
+	int					ret = INT_MAX;
+
+	if (_size < 2 || this->getLen() < 2)
+		throw SizeException();
+	std::sort(std::begin(copy), std::end(copy));
 	for (unsigned int i = 0; i < this->getLen() - 1; i++)
-		if (_tab[i + 1] - _tab[i] < ret)
-			ret = _tab[i + 1] - _tab[i];
+		if (copy[i + 1] - copy[i] < ret)
+			ret = copy[i + 1] - copy[i];
 	return ret;
 }
 
 int Span::longestSpan(void)
 {
-	if (this->getLen() < 2)
-		throw SizeException();
-	std::sort(std::begin(this->_tab), std::end(this->_tab));
-	return this->_tab[getLen() - 1] - this->_tab[0];
-}
+	std::vector<int>	copy = _tab;
 
-/*std::ostream    &operator<<(std::ostream &o, Span const &rhs)
-{
-	return o;
-}*/
+	if (_size < 2 || this->getLen() < 2)
+		throw SizeException();
+	std::sort(std::begin(copy), std::end(copy));
+	return copy[getLen() - 1] - copy[0];
+}
