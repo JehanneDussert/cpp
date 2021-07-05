@@ -15,7 +15,6 @@ class	NoNeedleException : public std::exception
 		const char* what() const throw();
 };
 
-
 const char* NoNeedleException::what() const throw()
 {
     return "Error. No needle found in haystack.\n";
